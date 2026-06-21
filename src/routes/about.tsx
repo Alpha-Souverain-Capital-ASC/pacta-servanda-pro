@@ -1,0 +1,76 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHeader } from "@/components/site/PageHeader";
+import { CtaBanner } from "@/components/site/CtaBanner";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About — P&A Advocates LLP" },
+      { name: "description", content: "A full-service Kenyan law firm driven by integrity, professionalism, and client commitment." },
+    ],
+  }),
+  component: About,
+});
+
+const VALUES = [
+  { name: "Integrity", desc: "We uphold the highest ethical standards in every engagement." },
+  { name: "Professionalism", desc: "We bring excellence, attention to detail, and respect into every client relationship." },
+  { name: "Client Commitment", desc: "Our clients are at the heart of everything we do." },
+  { name: "Continuous Growth", desc: "We embrace legal innovation and professional development." },
+  { name: "Teamwork", desc: "We believe in collaboration to achieve the best outcomes." },
+];
+
+function About() {
+  return (
+    <>
+      <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." />
+
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-mid" />
+          <div>
+            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Story</p>
+            <h2 className="font-display text-4xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              P&amp;A Advocates LLP is a full-service law firm in Kenya committed to providing expert legal services across a wide range of practice areas. We are driven by integrity, professionalism, and a deep commitment to delivering tailored, results-oriented legal solutions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-brand-offwhite">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+          <div className="bg-white p-10 border-t-2 border-brand-gold">
+            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Vision</p>
+            <p className="text-brand-green font-display text-2xl leading-snug">
+              To be a leading legal service provider in Kenya and the wider East African region, known for our unwavering commitment to justice, integrity, and legal innovation.
+            </p>
+          </div>
+          <div className="bg-white p-10 border-t-2 border-brand-gold">
+            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Mission</p>
+            <p className="text-brand-green font-display text-2xl leading-snug">
+              To provide exceptional legal services anchored in professionalism, responsiveness, and results — while building long-term partnerships based on trust and respect.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-3">Core Values</p>
+          <h2 className="font-display text-4xl text-brand-green text-center font-semibold mb-14">What We Stand For</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {VALUES.map((v) => (
+              <div key={v.name} className="bg-brand-offwhite p-8 border-l-4 border-brand-gold">
+                <h3 className="font-display text-2xl text-brand-green mb-2">{v.name}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner />
+    </>
+  );
+}
