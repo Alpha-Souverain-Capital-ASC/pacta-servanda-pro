@@ -28,10 +28,14 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <Link to="/book-consultation" className="btn-gold hidden sm:inline-block">
+        <Link
+          to="/book-consultation"
+          className="hidden sm:inline-flex items-center justify-center h-10 px-5 border border-brand-gold text-brand-gold text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap transition-colors hover:bg-brand-gold hover:text-white font-sans"
+        >
           Book a Consultation
         </Link>
       </div>
     </header>
+
   );
 }
