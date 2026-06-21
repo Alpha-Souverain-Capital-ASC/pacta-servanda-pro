@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PRACTICE_AREAS, TEAM } from "@/lib/site-data";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { HeroVideo } from "@/components/site/HeroVideo";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,29 +20,22 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative bg-brand-green diagonal-gold-lines min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 text-center">
-        <h1 className="font-display text-white text-5xl md:text-7xl font-semibold leading-tight max-w-5xl">
-          Trusted Legal Excellence.<br />Personalised Legal Support.
-        </h1>
-        <p className="text-white/80 mt-6 text-base md:text-lg max-w-2xl">
-          P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <Link to="/book-consultation" className="btn-gold">Book a Consultation</Link>
-          <Link to="/practice-areas" className="btn-outline-white">Explore Practice Areas</Link>
-        </div>
-
-        <div className="absolute bottom-12 left-0 right-0 px-6">
-          <div className="max-w-3xl mx-auto grid grid-cols-4 gap-6">
-            {LOCATIONS.map((loc, i) => (
-              <div key={loc} className="text-center">
-                <div className={`h-0.5 ${i === 0 ? "bg-brand-gold" : "bg-brand-gold-light/30"}`} />
-                <p className="mt-3 text-[10px] tracking-[0.3em] text-white/80 uppercase">{loc}</p>
-              </div>
-            ))}
+      <section className="relative min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+        <HeroVideo />
+        <div className="relative z-10 flex flex-col items-center">
+          <h1 className="font-display text-white text-5xl md:text-7xl font-semibold leading-tight max-w-5xl">
+            Trusted Legal Excellence.<br />Personalised Legal Support.
+          </h1>
+          <p className="text-white/80 mt-6 text-base md:text-lg max-w-2xl">
+            P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Link to="/book-consultation" className="btn-gold">Book a Consultation</Link>
+            <Link to="/practice-areas" className="btn-outline-white">Explore Practice Areas</Link>
           </div>
         </div>
       </section>
+
 
       {/* TRUST BAR */}
       <section className="bg-brand-green border-t border-white/10 py-10 px-6">
