@@ -18,11 +18,11 @@ function Contact() {
     <>
       <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." />
 
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14">
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14">
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Contact Information</p>
-            <h2 className="font-display text-4xl text-brand-green font-semibold mb-8">Visit, call, or write.</h2>
+            <h2 className="font-display text-3xl sm:text-4xl text-brand-green font-semibold mb-8">Visit, call, or write.</h2>
             <div className="space-y-5 text-sm">
               <div>
                 <p className="text-xs tracking-[0.25em] uppercase text-brand-gold mb-1">Address</p>
@@ -38,17 +38,17 @@ function Contact() {
                 <p className="text-brand-green">paadvocatesllp@gmail.com</p>
               </div>
             </div>
-            <div className="mt-10 bg-brand-offwhite border border-neutral-200 h-72 flex items-center justify-center text-muted-foreground text-sm">
+            <div className="mt-10 bg-brand-offwhite border border-neutral-200 h-64 sm:h-72 w-full flex items-center justify-center text-muted-foreground text-sm">
               Google Maps Embed
             </div>
           </div>
 
           <form
             onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            className="bg-brand-offwhite p-10 border-t-2 border-brand-gold"
+            className="bg-brand-offwhite p-7 sm:p-10 border-t-2 border-brand-gold w-full"
           >
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Send a Message</p>
-            <h2 className="font-display text-3xl text-brand-green font-semibold mb-8">How can we help?</h2>
+            <h2 className="font-display text-2xl sm:text-3xl text-brand-green font-semibold mb-8">How can we help?</h2>
             <div className="space-y-5">
               <Field label="Full Name"><input required type="text" className="input" /></Field>
               <Field label="Email Address"><input required type="email" className="input" /></Field>
@@ -61,10 +61,11 @@ function Contact() {
               </Field>
               <Field label="Message"><textarea required rows={5} className="input" /></Field>
             </div>
-            <button type="submit" className="btn-gold mt-8 w-full">{sent ? "Message Sent ✓" : "Send Message →"}</button>
+            <button type="submit" className="btn-gold mt-8 w-full min-h-11">{sent ? "Message Sent ✓" : "Send Message →"}</button>
           </form>
         </div>
       </section>
+
 
       <section className="bg-brand-offwhite py-16 px-6 text-center">
         <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Visit Our Offices</p>

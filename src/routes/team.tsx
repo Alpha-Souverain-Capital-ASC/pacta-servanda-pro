@@ -17,10 +17,10 @@ function TeamPage() {
   return (
     <>
       <PageHeader eyebrow="Our Team" title="Meet Our Advocates" subtitle="Experienced advocates committed to delivering results." />
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
           {TEAM.map((m) => (
-            <div key={m.name} className="bg-brand-offwhite p-8 text-center border-t-2 border-brand-gold">
+            <div key={m.name} className="bg-brand-offwhite p-8 text-center border-t-2 border-brand-gold w-full max-w-sm">
               <div className="w-32 h-32 rounded-full bg-brand-green/10 mx-auto mb-6" />
               <h3 className="font-display text-2xl text-brand-green">{m.name}</h3>
               <p className="text-brand-gold text-xs tracking-[0.25em] uppercase mt-1">{m.title}</p>
@@ -34,6 +34,7 @@ function TeamPage() {
           ))}
         </div>
       </section>
+
       <CtaBanner heading="Secure Your Representation" subtext="Speak with our partners about your matter." buttonLabel="Request Consultation" variant="outline" />
     </>
   );

@@ -17,10 +17,10 @@ function PracticeAreas() {
   return (
     <>
       <PageHeader eyebrow="Practice Areas" title="Our Expertise" subtitle="Comprehensive legal solutions across nine specialized practice areas." />
-      <section className="py-24 px-6 bg-brand-offwhite">
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRACTICE_AREAS.map((p) => (
-            <div key={p.slug} className="bg-white p-8 border border-neutral-200 hover:border-l-4 hover:border-l-brand-gold transition-all">
+            <div key={p.slug} className="bg-white p-7 md:p-8 border border-neutral-200 hover:border-l-4 hover:border-l-brand-gold transition-all">
               <div className="w-12 h-12 border border-brand-gold flex items-center justify-center text-brand-gold mb-5">
                 <span>▲</span>
               </div>
@@ -31,6 +31,7 @@ function PracticeAreas() {
           ))}
         </div>
       </section>
+
       <CtaBanner />
     </>
   );
