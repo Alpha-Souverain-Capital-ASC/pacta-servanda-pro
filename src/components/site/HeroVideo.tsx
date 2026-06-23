@@ -11,20 +11,43 @@ const VIDEOS = [
   { label: "Kisumu", url: kisumu.url },
 ];
 
+const SLIDE_MS = 6000;
+
 export function HeroVideo() {
   const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [failed, setFailed] = useState(false);
   const refs = useRef<(HTMLVideoElement | null)[]>([]);
+  const startRef = useRef<number>(performance.now());
 
   useEffect(() => {
     const v = refs.current[active];
     if (v) {
-      v.currentTime = 0;
-      v.play().catch(() => {});
+      try {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      } catch {}
     }
-  }, [active]);
+    startRef.current = performance.now();
+    setProgress(0);
 
-  const advance = () => setActive((i) => (i + 1) % VIDEOS.length);
+    const timeout = setTimeout(() => {
+      setActive((i) => (i + 1) % VIDEOS.length);
+    }, SLIDE_MS);
+
+    const raf = { id: 0 };
+    const tick = () => {
+      const elapsed = performance.now() - startRef.current;
+      setProgress(Math.min(1, elapsed / SLIDE_MS));
+      raf.id = requestAnimationFrame(tick);
+    };
+    raf.id = requestAnimationFrame(tick);
+
+    return () => {
+      clearTimeout(timeout);
+      cancelAnimationFrame(raf.id);
+    };
+  }, [active]);
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-brand-green">
@@ -37,10 +60,10 @@ export function HeroVideo() {
             }}
             src={v.url}
             muted
+            loop
             playsInline
             autoPlay={i === 0}
             preload={i === 0 ? "auto" : "metadata"}
-            onEnded={() => i === active && advance()}
             onError={() => setFailed(true)}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[600ms] ${
               i === active ? "opacity-100" : "opacity-0"
@@ -52,26 +75,33 @@ export function HeroVideo() {
 
       <div className="absolute bottom-12 left-0 right-0 px-6 z-10">
         <div className="max-w-3xl mx-auto grid grid-cols-4 gap-6">
-          {VIDEOS.map((v, i) => (
-            <button
-              key={v.label}
-              onClick={() => setActive(i)}
-              className="text-center group"
-            >
-              <div
-                className={`h-0.5 transition-colors ${
-                  i === active ? "bg-brand-gold" : "bg-brand-gold-light/30"
-                }`}
-              />
-              <p
-                className={`mt-3 text-[10px] tracking-[0.3em] uppercase ${
-                  i === active ? "text-white" : "text-white/60"
-                }`}
+          {VIDEOS.map((v, i) => {
+            const fill = i < active ? 1 : i === active ? progress : 0;
+            return (
+              <button
+                key={v.label}
+                onClick={() => setActive(i)}
+                className="text-center group"
               >
-                {v.label}
-              </p>
-            </button>
-          ))}
+                <div className="h-0.5 bg-brand-gold-light/30 overflow-hidden">
+                  <div
+                    className="h-full bg-brand-gold"
+                    style={{
+                      width: `${fill * 100}%`,
+                      transition: i === active ? "none" : "width 200ms linear",
+                    }}
+                  />
+                </div>
+                <p
+                  className={`mt-3 text-[10px] tracking-[0.3em] uppercase ${
+                    i === active ? "text-white" : "text-white/60"
+                  }`}
+                >
+                  {v.label}
+                </p>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
