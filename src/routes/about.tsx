@@ -25,43 +25,43 @@ function About() {
     <>
       <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." />
 
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-mid" />
+      <section className="py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+          <div className="aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-mid w-full" />
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Story</p>
-            <h2 className="font-display text-4xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <h2 className="font-display text-3xl sm:text-4xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
               P&amp;A Advocates LLP is a full-service law firm in Kenya committed to providing expert legal services across a wide range of practice areas. We are driven by integrity, professionalism, and a deep commitment to delivering tailored, results-oriented legal solutions.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-brand-offwhite">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-          <div className="bg-white p-10 border-t-2 border-brand-gold">
+      <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div className="bg-white p-8 md:p-10 border-t-2 border-brand-gold">
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Vision</p>
-            <p className="text-brand-green font-display text-2xl leading-snug">
+            <p className="text-brand-green font-display text-xl sm:text-2xl leading-snug">
               To be a leading legal service provider in Kenya and the wider East African region, known for our unwavering commitment to justice, integrity, and legal innovation.
             </p>
           </div>
-          <div className="bg-white p-10 border-t-2 border-brand-gold">
+          <div className="bg-white p-8 md:p-10 border-t-2 border-brand-gold">
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Mission</p>
-            <p className="text-brand-green font-display text-2xl leading-snug">
+            <p className="text-brand-green font-display text-xl sm:text-2xl leading-snug">
               To provide exceptional legal services anchored in professionalism, responsiveness, and results — while building long-term partnerships based on trust and respect.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-3">Core Values</p>
-          <h2 className="font-display text-4xl text-brand-green text-center font-semibold mb-14">What We Stand For</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="font-display text-3xl sm:text-4xl text-brand-green text-center font-semibold mb-12 md:mb-14">What We Stand For</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {VALUES.map((v) => (
-              <div key={v.name} className="bg-brand-offwhite p-8 border-l-4 border-brand-gold">
+              <div key={v.name} className="bg-brand-offwhite p-7 md:p-8 border-l-4 border-brand-gold">
                 <h3 className="font-display text-2xl text-brand-green mb-2">{v.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
@@ -69,6 +69,7 @@ function About() {
           </div>
         </div>
       </section>
+
 
       <CtaBanner />
     </>
