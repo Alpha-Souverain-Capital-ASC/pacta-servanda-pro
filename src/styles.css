@@ -66,13 +66,16 @@
 
 @layer base {
   * { border-color: var(--color-border); }
+  html, body { overflow-x: hidden; max-width: 100%; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
+  img, video { max-width: 100%; height: auto; }
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
+
 
 @utility diagonal-gold-lines {
   background-image:

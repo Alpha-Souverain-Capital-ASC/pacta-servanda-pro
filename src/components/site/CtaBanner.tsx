@@ -12,11 +12,18 @@ export function CtaBanner({
   variant?: "solid" | "outline";
 }) {
   return (
-    <section className="bg-brand-green diagonal-gold-lines py-24 px-6 text-center">
+    <section className="bg-brand-green diagonal-gold-lines py-16 md:py-24 px-6 text-center">
       <div className="text-brand-gold text-2xl mb-6">▲</div>
-      <h2 className="font-display text-white text-5xl md:text-6xl font-semibold mb-4">{heading}</h2>
-      <p className="text-white/80 text-base md:text-lg mb-10">{subtext}</p>
-      <Link to="/book-consultation" className={variant === "solid" ? "btn-gold" : "btn-outline-gold"}>
+      <h2 className="font-display text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
+        {heading}
+      </h2>
+      <p className="text-white/80 text-sm sm:text-base md:text-lg mb-10 max-w-2xl mx-auto">
+        {subtext}
+      </p>
+      <Link
+        to="/book-consultation"
+        className={`${variant === "solid" ? "btn-gold" : "btn-outline-gold"} inline-block w-full sm:w-auto max-w-xs`}
+      >
         {buttonLabel}
       </Link>
     </section>
