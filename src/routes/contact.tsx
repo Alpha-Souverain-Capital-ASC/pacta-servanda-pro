@@ -62,8 +62,17 @@ function Contact() {
                 <p className="text-brand-green">paadvocatesllp@gmail.com</p>
               </div>
             </div>
-            <div className="mt-10 bg-brand-offwhite border border-neutral-200 h-64 sm:h-72 w-full flex items-center justify-center text-muted-foreground text-sm">
-              Google Maps Embed
+            <div className="mt-10 h-64 sm:h-72 w-full border border-neutral-200 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m1!1sKaderbhoy+Building+Nkurumah+Rd+Mombasa!2m3!1d-4.0625639!2d39.6682107!3f0!4f0!5f0"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="P&A Advocates LLP Office Location"
+              />
             </div>
           </div>
 
