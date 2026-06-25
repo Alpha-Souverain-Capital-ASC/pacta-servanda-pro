@@ -14,6 +14,30 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "General Inquiry",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Contact Form: ${formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:paadvocatesllp@gmail.com?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
   return (
     <>
       <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." />
@@ -44,28 +68,40 @@ function Contact() {
           </div>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={handleSubmit}
             className="bg-brand-offwhite p-7 sm:p-10 border-t-2 border-brand-gold w-full"
           >
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Send a Message</p>
             <h2 className="font-display text-2xl sm:text-3xl text-brand-green font-semibold mb-8">How can we help?</h2>
             <div className="space-y-5">
-              <Field label="Full Name"><input required type="text" className="input" /></Field>
-              <Field label="Email Address"><input required type="email" className="input" /></Field>
-              <Field label="Phone Number"><input type="tel" className="input" /></Field>
+              <Field label="Full Name">
+                <input required name="name" type="text" className="input" value={formData.name} onChange={handleChange} />
+              </Field>
+              <Field label="Email Address">
+                <input required name="email" type="email" className="input" value={formData.email} onChange={handleChange} />
+              </Field>
+              <Field label="Phone Number">
+                <input name="phone" type="tel" className="input" value={formData.phone} onChange={handleChange} />
+              </Field>
               <Field label="Subject">
-                <select className="input">
+                <select name="subject" className="input" value={formData.subject} onChange={handleChange}>
                   <option>General Inquiry</option>
                   <option>Specific Practice Area</option>
                 </select>
               </Field>
-              <Field label="Message"><textarea required rows={5} className="input" /></Field>
+              <Field label="Message">
+                <textarea required name="message" rows={5} className="input" value={formData.message} onChange={handleChange} />
+              </Field>
             </div>
-            <button type="submit" className="btn-gold mt-8 w-full min-h-11">{sent ? "Message Sent ✓" : "Send Message →"}</button>
+            <button type="submit" className="btn-gold mt-8 w-full min-h-11">{sent ? "Message Prepared ✓" : "Send Message →"}</button>
+            {sent && (
+              <p className="text-xs text-brand-green mt-3 text-center">
+                Your email client should open with the message pre-filled. If it doesn’t, please email us directly at <a href="mailto:paadvocatesllp@gmail.com" className="underline text-brand-gold">paadvocatesllp@gmail.com</a>.
+              </p>
+            )}
           </form>
         </div>
       </section>
-
 
       <section className="bg-brand-offwhite py-16 px-6 text-center">
         <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Visit Our Offices</p>
