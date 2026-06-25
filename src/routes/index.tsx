@@ -94,9 +94,6 @@ function Home() {
 function PracticeCard({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="bg-white border border-neutral-200 p-7 group hover:border-l-4 hover:border-l-brand-gold transition-all">
-      <div className="w-10 h-10 border border-brand-gold flex items-center justify-center text-brand-gold mb-5">
-        <span className="text-sm">▲</span>
-      </div>
       <h3 className="font-display text-xl font-semibold text-brand-green mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed mb-5">{desc}</p>
       <Link to="/practice-areas" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
