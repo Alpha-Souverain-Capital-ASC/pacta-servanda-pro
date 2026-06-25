@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import mombasa from "@/assets/videos/mombasa.mp4.asset.json";
 import nairobi from "@/assets/videos/nairobi.mp4.asset.json";
-import embu from "@/assets/videos/embu.mp4.asset.json";
-import kisumu from "@/assets/videos/kisumu.mp4.asset.json";
 
 const VIDEOS = [
   { label: "Mombasa", url: mombasa.url },
   { label: "Nairobi", url: nairobi.url },
-  { label: "Embu", url: embu.url },
-  { label: "Kisumu", url: kisumu.url },
 ];
 
 const SLIDE_MS = 6000;
