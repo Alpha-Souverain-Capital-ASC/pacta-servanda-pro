@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const LOCATIONS = ["Mombasa", "Nairobi", "Embu", "Kisumu"];
+
 
 function Home() {
   return (
