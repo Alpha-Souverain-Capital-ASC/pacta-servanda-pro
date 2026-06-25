@@ -77,7 +77,7 @@ export function HeroVideo() {
       <div className="absolute inset-0 diagonal-gold-lines pointer-events-none" />
 
       <div className="absolute bottom-12 left-0 right-0 px-6 z-10">
-        <div className="max-w-3xl mx-auto grid grid-cols-4 gap-6">
+        <div className="max-w-xl mx-auto grid grid-cols-2 gap-6">
           {VIDEOS.map((v, i) => {
             const fill = i < active ? 1 : i === active ? progress : 0;
             return (
