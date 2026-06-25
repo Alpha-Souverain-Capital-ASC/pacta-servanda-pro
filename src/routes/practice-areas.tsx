@@ -21,9 +21,6 @@ function PracticeAreas() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRACTICE_AREAS.map((p) => (
             <div key={p.slug} className="bg-white p-7 md:p-8 border border-neutral-200 hover:border-l-4 hover:border-l-brand-gold transition-all">
-              <div className="w-12 h-12 border border-brand-gold flex items-center justify-center text-brand-gold mb-5">
-                <span>▲</span>
-              </div>
               <h3 className="font-display text-2xl font-semibold text-brand-green mb-3">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.long}</p>
               <Link to="/contact" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
