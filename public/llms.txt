@@ -1,0 +1,11 @@
+# P&A Advocates LLP
+
+> Premium legal services firm with offices across Kenya, serving clients in Mombasa, Nairobi, Embu, and Kisumu.
+
+## Pages
+
+- [Home](/): Firm overview and featured practice areas.
+- [About](/about): Firm history, values, and approach.
+- [Practice Areas](/practice-areas): Areas of legal expertise.
+- [Our Team](/team): Advocates and partners at the firm.
+- [Contact](/contact): Office locations, contact details, and consultation request form.

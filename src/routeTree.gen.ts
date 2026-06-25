@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PracticeAreasRouteImport } from './routes/practice-areas'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookConsultationRouteImport } from './routes/book-consultation'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PracticeAreasRoute = PracticeAreasRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/practice-areas': typeof PracticeAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/practice-areas': typeof PracticeAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/book-consultation': typeof BookConsultationRoute
   '/contact': typeof ContactRoute
   '/practice-areas': typeof PracticeAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/contact'
     | '/practice-areas'
+    | '/sitemap.xml'
     | '/team'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/contact'
     | '/practice-areas'
+    | '/sitemap.xml'
     | '/team'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/contact'
     | '/practice-areas'
+    | '/sitemap.xml'
     | '/team'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   BookConsultationRoute: typeof BookConsultationRoute
   ContactRoute: typeof ContactRoute
   PracticeAreasRoute: typeof PracticeAreasRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
 }
 
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/practice-areas': {
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookConsultationRoute: BookConsultationRoute,
   ContactRoute: ContactRoute,
   PracticeAreasRoute: PracticeAreasRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
