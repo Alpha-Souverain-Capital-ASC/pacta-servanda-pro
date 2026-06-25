@@ -49,7 +49,7 @@ export function Navbar() {
         </nav>
 
         <Link
-          to="/book-consultation"
+          to="/contact"
           className="hidden md:inline-flex items-center justify-center px-3 lg:px-4 py-2 border border-brand-gold text-brand-gold text-[12px] lg:text-[13px] font-medium uppercase tracking-[0.1em] whitespace-nowrap transition-colors hover:bg-brand-gold hover:text-white font-sans"
         >
           Book a Consultation
@@ -89,7 +89,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            to="/book-consultation"
+            to="/contact"
             onClick={() => setOpen(false)}
             className="mt-5 mb-2 w-full inline-flex items-center justify-center min-h-12 px-4 border border-brand-gold text-brand-gold text-[13px] font-medium uppercase tracking-[0.12em] hover:bg-brand-gold hover:text-white"
           >

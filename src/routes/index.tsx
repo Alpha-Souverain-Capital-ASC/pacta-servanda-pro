@@ -30,7 +30,7 @@ function Home() {
             P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-stretch sm:items-center px-4 sm:px-0 max-w-xs sm:max-w-none mx-auto">
-            <Link to="/book-consultation" className="btn-gold text-center min-h-11">Book a Consultation</Link>
+            <Link to="/contact" className="btn-gold text-center min-h-11">Book a Consultation</Link>
             <Link to="/practice-areas" className="btn-outline-white text-center min-h-11">Explore Practice Areas</Link>
           </div>
         </div>
