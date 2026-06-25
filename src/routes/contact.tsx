@@ -64,7 +64,7 @@ function Contact() {
             </div>
             <div className="mt-10 h-64 sm:h-72 w-full border border-neutral-200 overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m1!1sKaderbhoy+Building+Nkurumah+Rd+Mombasa!2m3!1d-4.0625639!2d39.6682107!3f0!4f0!5f0"
+                src="https://maps.google.com/maps?q=Kaderbhoy%20Building%2C%20Nkurumah%20Road%2C%20Mombasa&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
