@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import mombasa from "@/assets/videos/mombasa.mp4.asset.json";
 import nairobi from "@/assets/videos/nairobi.mp4.asset.json";
-import embu from "@/assets/videos/embu.mp4.asset.json";
-import kisumu from "@/assets/videos/kisumu.mp4.asset.json";
 
 const VIDEOS = [
   { label: "Mombasa", url: mombasa.url },
   { label: "Nairobi", url: nairobi.url },
-  { label: "Embu", url: embu.url },
-  { label: "Kisumu", url: kisumu.url },
 ];
 
 const SLIDE_MS = 6000;
@@ -81,7 +77,7 @@ export function HeroVideo() {
       <div className="absolute inset-0 diagonal-gold-lines pointer-events-none" />
 
       <div className="absolute bottom-12 left-0 right-0 px-6 z-10">
-        <div className="max-w-3xl mx-auto grid grid-cols-4 gap-6">
+        <div className="max-w-xl mx-auto grid grid-cols-2 gap-6">
           {VIDEOS.map((v, i) => {
             const fill = i < active ? 1 : i === active ? progress : 0;
             return (
