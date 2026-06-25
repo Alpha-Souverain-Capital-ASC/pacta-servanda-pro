@@ -21,7 +21,7 @@ export function CtaBanner({
         {subtext}
       </p>
       <Link
-        to="/book-consultation"
+        to="/contact"
         className={`${variant === "solid" ? "btn-gold" : "btn-outline-gold"} inline-block w-full sm:w-auto max-w-xs`}
       >
         {buttonLabel}

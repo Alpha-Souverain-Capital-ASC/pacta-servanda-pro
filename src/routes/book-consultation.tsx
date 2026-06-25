@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader } from "@/components/site/PageHeader";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/book-consultation")({
   head: () => ({
@@ -12,39 +12,14 @@ export const Route = createFileRoute("/book-consultation")({
 });
 
 function Book() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate({ to: "/contact", replace: true });
+  }, [navigate]);
+
   return (
-    <>
-      <PageHeader eyebrow="Consultation" title="Schedule a Consultation" subtitle="Book a confidential session with our legal team." />
-      <section className="py-16 md:py-20 px-6 bg-brand-offwhite">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-neutral-200 min-h-[420px] sm:h-[520px] w-full flex items-center justify-center text-center px-6 py-10">
-            <div>
-              <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Booking</p>
-              <p className="font-display text-2xl text-brand-green">Calendly Booking Widget</p>
-              <p className="text-sm text-muted-foreground mt-2">Embed link goes here.</p>
-            </div>
-          </div>
-
-          <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            <a href="tel:+254757688891" className="bg-white p-6 border border-neutral-200 hover:border-brand-gold transition min-h-11">
-              <p className="text-brand-gold text-2xl">📞</p>
-              <p className="text-xs tracking-[0.25em] uppercase text-brand-green mt-2">Call</p>
-              <p className="text-sm text-muted-foreground mt-1 break-all">+254 757 688 891</p>
-            </a>
-            <a href="mailto:paadvocatesllp@gmail.com" className="bg-white p-6 border border-neutral-200 hover:border-brand-gold transition min-h-11">
-              <p className="text-brand-gold text-2xl">✉</p>
-              <p className="text-xs tracking-[0.25em] uppercase text-brand-green mt-2">Email</p>
-              <p className="text-sm text-muted-foreground mt-1 break-all">paadvocatesllp@gmail.com</p>
-            </a>
-            <a href="https://wa.me/254757688891" className="bg-white p-6 border border-neutral-200 hover:border-brand-gold transition min-h-11">
-              <p className="text-brand-gold text-2xl">💬</p>
-              <p className="text-xs tracking-[0.25em] uppercase text-brand-green mt-2">WhatsApp</p>
-              <p className="text-sm text-muted-foreground mt-1 break-all">wa.me/254757688891</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </>
+    <div className="min-h-screen flex items-center justify-center bg-brand-offwhite">
+      <p className="text-brand-green text-sm">Redirecting to contact page…</p>
+    </div>
   );
 }
