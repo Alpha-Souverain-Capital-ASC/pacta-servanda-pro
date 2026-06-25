@@ -16,7 +16,7 @@ const SLIDE_MS = 6000;
 export function HeroVideo() {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [failed, setFailed] = useState(false);
+  const [errored, setErrored] = useState<boolean[]>(() => VIDEOS.map(() => false));
   const refs = useRef<(HTMLVideoElement | null)[]>([]);
   const startRef = useRef<number>(performance.now());
 
@@ -25,7 +25,8 @@ export function HeroVideo() {
     if (v) {
       try {
         v.currentTime = 0;
-        v.play().catch(() => {});
+        const p = v.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
       } catch {}
     }
     startRef.current = performance.now();
@@ -35,41 +36,47 @@ export function HeroVideo() {
       setActive((i) => (i + 1) % VIDEOS.length);
     }, SLIDE_MS);
 
-    const raf = { id: 0 };
+    let rafId = 0;
     const tick = () => {
       const elapsed = performance.now() - startRef.current;
       setProgress(Math.min(1, elapsed / SLIDE_MS));
-      raf.id = requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(tick);
     };
-    raf.id = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
 
     return () => {
       clearTimeout(timeout);
-      cancelAnimationFrame(raf.id);
+      cancelAnimationFrame(rafId);
     };
   }, [active]);
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-brand-green">
-      {!failed &&
-        VIDEOS.map((v, i) => (
-          <video
-            key={v.url}
-            ref={(el) => {
-              refs.current[i] = el;
-            }}
-            src={v.url}
-            muted
-            loop
-            playsInline
-            autoPlay={i === 0}
-            preload={i === 0 ? "auto" : "metadata"}
-            onError={() => setFailed(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[600ms] ${
-              i === active ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+      {VIDEOS.map((v, i) => (
+        <video
+          key={v.url}
+          ref={(el) => {
+            refs.current[i] = el;
+          }}
+          src={v.url}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="auto"
+          onError={() =>
+            setErrored((prev) => {
+              if (prev[i]) return prev;
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            })
+          }
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[600ms] ${
+            i === active && !errored[i] ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
       <div className="absolute inset-0 bg-brand-green/60" />
       <div className="absolute inset-0 diagonal-gold-lines pointer-events-none" />
 
