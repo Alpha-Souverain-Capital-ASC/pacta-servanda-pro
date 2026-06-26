@@ -6,8 +6,13 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — P&A Advocates LLP" },
-      { name: "description", content: "Get in touch with P&A Advocates LLP in Mombasa, Kenya." },
+      { name: "description", content: "Get in touch with P&A Advocates LLP in Mombasa, Kenya — visit, call, or send us a message." },
+      { property: "og:title", content: "Contact — P&A Advocates LLP" },
+      { property: "og:description", content: "Reach P&A Advocates LLP at Kaderbhoy Building, Nkurumah Road, Mombasa." },
+      { property: "og:url", content: "https://paadvocatesllp.com/contact" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/contact" }],
   }),
   component: Contact,
 });

@@ -8,7 +8,12 @@ export const Route = createFileRoute("/team")({
     meta: [
       { title: "Our Team — P&A Advocates LLP" },
       { name: "description", content: "Meet the advocates of P&A Advocates LLP — experienced legal professionals committed to your success." },
+      { property: "og:title", content: "Our Team — P&A Advocates LLP" },
+      { property: "og:description", content: "Meet the advocates and partners behind P&A Advocates LLP in Mombasa, Kenya." },
+      { property: "og:url", content: "https://paadvocatesllp.com/team" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/team" }],
   }),
   component: TeamPage,
 });
@@ -22,7 +27,7 @@ function TeamPage() {
           {TEAM.map((m) => (
             <div key={m.name} className="bg-brand-offwhite p-8 text-center border-t-2 border-brand-gold w-full max-w-sm">
               <div className="w-32 h-32 rounded-full bg-brand-green/10 mx-auto mb-6" />
-              <h3 className="font-display text-2xl text-brand-green">{m.name}</h3>
+              <h2 className="font-display text-2xl text-brand-green">{m.name}</h2>
               <p className="text-brand-gold text-xs tracking-[0.25em] uppercase mt-1">{m.title}</p>
               <p className="text-sm text-muted-foreground mt-4 leading-relaxed">{m.bio}</p>
               <div className="flex flex-wrap justify-center gap-2 mt-5">
