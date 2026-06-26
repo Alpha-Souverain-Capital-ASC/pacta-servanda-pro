@@ -23,12 +23,12 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between gap-3">
         <Link to="/" onClick={() => setOpen(false)} className="shrink-0">
           <img
             src={logoAsset.url}
             alt="P&A Advocates LLP"
-            className="h-10 sm:h-12 w-auto object-contain"
+            className="h-14 sm:h-16 w-auto object-contain"
           />
         </Link>
 
