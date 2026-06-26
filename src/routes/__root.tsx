@@ -79,16 +79,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "P&A Advocates LLP — Trusted Legal Excellence in Kenya" },
+      { title: "P&A Advocates LLP" },
       { name: "description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
-      { property: "og:title", content: "P&A Advocates LLP — Trusted Legal Excellence in Kenya" },
-      { property: "og:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
+      { property: "og:site_name", content: "P&A Advocates LLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "P&A Advocates LLP — Trusted Legal Excellence in Kenya" },
-      { name: "twitter:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/043f36d1-e331-4bc7-a65f-9eb5c4faf37b/id-preview-3907cfa3--ad8837de-afd0-4d57-9b01-485c8bb6be02.lovable.app-1782391655739.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/043f36d1-e331-4bc7-a65f-9eb5c4faf37b/id-preview-3907cfa3--ad8837de-afd0-4d57-9b01-485c8bb6be02.lovable.app-1782391655739.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -97,6 +92,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "P&A Advocates LLP",
+          url: "https://paadvocatesllp.com/",
+          logo: "https://paadvocatesllp.com/favicon.ico",
+        }),
       },
     ],
   }),
