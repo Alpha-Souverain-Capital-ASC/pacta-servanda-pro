@@ -9,6 +9,31 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "P&A Advocates LLP — Trusted Legal Excellence in Kenya" },
       { name: "description", content: "Strategic legal counsel across Kenya from a full-service Mombasa-based law firm." },
+      { property: "og:title", content: "P&A Advocates LLP — Trusted Legal Excellence in Kenya" },
+      { property: "og:description", content: "Strategic legal counsel across Kenya from a full-service Mombasa-based law firm." },
+      { property: "og:url", content: "https://paadvocatesllp.com/" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          name: "P&A Advocates LLP",
+          url: "https://paadvocatesllp.com/",
+          telephone: "+254 757 688 891",
+          email: "paadvocatesllp@gmail.com",
+          areaServed: "KE",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kaderbhoy Building, First Floor, Room 13, Nkurumah Road",
+            addressLocality: "Mombasa",
+            addressCountry: "KE",
+          },
+        }),
+      },
     ],
   }),
   component: Home,

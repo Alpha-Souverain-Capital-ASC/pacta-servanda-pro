@@ -7,7 +7,12 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About — P&A Advocates LLP" },
       { name: "description", content: "A full-service Kenyan law firm driven by integrity, professionalism, and client commitment." },
+      { property: "og:title", content: "About — P&A Advocates LLP" },
+      { property: "og:description", content: "Our story, vision, mission, and the values driving P&A Advocates LLP." },
+      { property: "og:url", content: "https://paadvocatesllp.com/about" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/about" }],
   }),
   component: About,
 });
