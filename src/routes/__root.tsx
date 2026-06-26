@@ -84,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "P&A Advocates LLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { property: "og:title", content: "P&A Advocates LLP" },
+      { name: "twitter:title", content: "P&A Advocates LLP" },
+      { property: "og:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
+      { name: "twitter:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
