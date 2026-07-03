@@ -19,6 +19,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [displayText, setDisplayText] = useState(FULL);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
