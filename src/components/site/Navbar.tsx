@@ -11,15 +11,72 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const FULL = "Perry & Ateng Advocates LLP";
-const SHORT = "P & A Advocates";
+const PREFIX_FULL = "Perry & Ateng ";
+const PREFIX_SHORT = "P & A ";
+const MIDDLE = "Advocates";
+const SUFFIX_FULL = " LLP";
+const SUFFIX_SHORT = "";
+
+function useAnimatedPiece(target: string, speed: number = 22) {
+  const [text, setText] = useState(target);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const targetRef = useRef(target);
+  const currentRef = useRef(target);
+
+  useEffect(() => {
+    if (targetRef.current === target) return;
+    targetRef.current = target;
+
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    const from = currentRef.current;
+    const to = target;
+
+    let deleting = true;
+    let idx = from.length;
+
+    const tick = () => {
+      if (deleting) {
+        idx--;
+        const next = from.slice(0, idx);
+        currentRef.current = next;
+        setText(next);
+        if (idx > 0) {
+          timerRef.current = setTimeout(tick, speed);
+        } else {
+          deleting = false;
+          timerRef.current = setTimeout(tick, speed);
+        }
+      } else {
+        idx++;
+        const next = to.slice(0, idx);
+        currentRef.current = next;
+        setText(next);
+        if (idx < to.length) {
+          timerRef.current = setTimeout(tick, speed);
+        }
+      }
+    };
+
+    timerRef.current = setTimeout(tick, speed);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [target]);
+
+  return text;
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [displayText, setDisplayText] = useState(FULL);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const hasMounted = useRef(false);
+
+  const targetPrefix = scrolled ? PREFIX_SHORT : PREFIX_FULL;
+  const targetSuffix = scrolled ? SUFFIX_SHORT : SUFFIX_FULL;
+
+  const prefix = useAnimatedPiece(targetPrefix, 22);
+  const suffix = useAnimatedPiece(targetSuffix, 22);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -35,58 +92,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-
-    if (!hasMounted.current) {
-      hasMounted.current = true;
-      setDisplayText(scrolled ? SHORT : FULL);
-      return;
-    }
-
-    const speed = 22;
-
-    const typewriter = (
-      from: string,
-      to: string,
-      deleting: boolean
-    ) => {
-      let i = deleting ? from.length : 0;
-
-      const step = () => {
-        if (deleting) {
-          i--;
-          setDisplayText(from.slice(0, i));
-          if (i > 0) {
-            timerRef.current = setTimeout(step, speed);
-          } else {
-            timerRef.current = setTimeout(() => {
-              typewriter(to, to, false);
-            }, speed);
-          }
-        } else {
-          i++;
-          setDisplayText(to.slice(0, i));
-          if (i < to.length) {
-            timerRef.current = setTimeout(step, speed);
-          }
-        }
-      };
-
-      timerRef.current = setTimeout(step, speed);
-    };
-
-    if (scrolled) {
-      typewriter(FULL, SHORT, true);
-    } else {
-      typewriter(SHORT, FULL, true);
-    }
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [scrolled]);
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200 ${
@@ -94,16 +99,16 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
-        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label={FULL}>
+        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label="Perry & Ateng Advocates LLP">
           {/* Mobile: short only */}
           <span className="md:hidden font-display text-brand-green text-lg font-semibold tracking-wide whitespace-nowrap">
             P &amp; A Advocates
           </span>
           {/* Desktop: full ↔ short with typing animation */}
-          <span className="hidden md:inline-block relative h-7 min-w-[16rem]">
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
-              {displayText}
-            </span>
+          <span className="hidden md:inline-block font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
+            <span>{prefix}</span>
+            <span>{MIDDLE}</span>
+            <span>{suffix}</span>
           </span>
         </Link>
 
