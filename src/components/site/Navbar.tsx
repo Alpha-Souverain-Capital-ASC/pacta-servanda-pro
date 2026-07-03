@@ -44,7 +44,7 @@ export function Navbar() {
           {/* Desktop: full ↔ short with animation */}
           <span className="hidden md:inline-block relative h-7 min-w-[16rem]">
             <span className="wordmark-full font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide">
-              Perry and Ateng Advocates LLP
+              Perry &amp; Ateng Advocates LLP
             </span>
             <span className="wordmark-short font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide">
               P &amp; A Advocates LLP
