@@ -127,30 +127,30 @@ main > div > section + section {
 /* Wordmark collapse animation */
 .wordmark-full,
 .wordmark-short {
-  display: inline-block;
-  transition: opacity 300ms ease, transform 300ms ease;
-  white-space: nowrap;
-}
-.wordmark-full {
-  opacity: 1;
-  transform: translateX(0);
-}
-.wordmark-short {
-  opacity: 0;
-  transform: translateX(-8px);
   position: absolute;
   left: 0;
   top: 50%;
   translate: 0 -50%;
+  transition: opacity 300ms linear, transform 300ms linear;
+  white-space: nowrap;
+  transform-origin: left center;
+}
+.wordmark-full {
+  opacity: 1;
+  transform: scaleX(1);
+}
+.wordmark-short {
+  opacity: 0;
+  transform: scaleX(0.92);
 }
 .nav-scrolled .wordmark-full {
   opacity: 0;
-  transform: translateX(-8px);
+  transform: scaleX(0.92);
   pointer-events: none;
 }
 .nav-scrolled .wordmark-short {
   opacity: 1;
-  transform: translateX(0);
+  transform: scaleX(1);
 }
 
 @utility btn-gold {
