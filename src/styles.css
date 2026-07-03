@@ -30,6 +30,8 @@
   --color-brand-gold: var(--brand-gold);
   --color-brand-gold-light: var(--brand-gold-light);
   --color-brand-offwhite: var(--brand-offwhite);
+  --color-brand-cream-text: var(--brand-cream-text);
+  --color-brand-dark-text: var(--brand-dark-text);
 
   --font-display: "Cormorant Garamond", serif;
   --font-sans: "Montserrat", sans-serif;
@@ -37,31 +39,33 @@
 
 :root {
   --radius: 0;
-  --brand-green: #044422;
-  --brand-green-mid: #30603C;
-  --brand-gold: #C79D31;
-  --brand-gold-light: #F2C987;
-  --brand-offwhite: #F8F8F8;
+  --brand-green: #1c4032;
+  --brand-green-mid: #26543f;
+  --brand-gold: #caa64a;
+  --brand-gold-light: #e6c987;
+  --brand-offwhite: #f4f0e6;
+  --brand-cream-text: #f0ead9;
+  --brand-dark-text: #2a2a24;
 
   --background: #ffffff;
-  --foreground: #044422;
-  --primary: #044422;
-  --primary-foreground: #ffffff;
-  --secondary: #F8F8F8;
-  --secondary-foreground: #044422;
-  --muted: #F8F8F8;
+  --foreground: #2a2a24;
+  --primary: #1c4032;
+  --primary-foreground: #f0ead9;
+  --secondary: #f4f0e6;
+  --secondary-foreground: #1c4032;
+  --muted: #f4f0e6;
   --muted-foreground: #5b6b62;
-  --accent: #C79D31;
+  --accent: #caa64a;
   --accent-foreground: #ffffff;
   --card: #ffffff;
-  --card-foreground: #044422;
+  --card-foreground: #1c4032;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #C79D31;
+  --ring: #caa64a;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
   --popover: #ffffff;
-  --popover-foreground: #044422;
+  --popover-foreground: #1c4032;
 }
 
 @layer base {
@@ -76,11 +80,77 @@
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
 
+/* Cream sections get a faint dot texture */
+.bg-brand-offwhite {
+  background-color: var(--brand-offwhite);
+  background-image: radial-gradient(rgba(28,64,50,0.09) 1px, transparent 1px);
+  background-size: 9px 9px;
+}
 
-@utility diagonal-gold-lines {
-  background-image:
-    repeating-linear-gradient(115deg, transparent 0 80px, rgba(242, 201, 135, 0.08) 80px 81px),
-    repeating-linear-gradient(65deg, transparent 0 120px, rgba(242, 201, 135, 0.06) 120px 121px);
+/* 2px gold divider between adjacent sections site-wide */
+main > section + section,
+main > div > section + section {
+  border-top: 2px solid var(--brand-gold);
+}
+
+/* Radial glow behind hero */
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 25% 20%, rgba(38,84,63,0.6), transparent 70%);
+  z-index: 1;
+}
+
+/* Scroll reveal — sections fade up when visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -12px rgba(28,64,50,0.25);
+}
+
+/* Wordmark collapse animation */
+.wordmark-full,
+.wordmark-short {
+  display: inline-block;
+  transition: opacity 300ms ease, transform 300ms ease;
+  white-space: nowrap;
+}
+.wordmark-full {
+  opacity: 1;
+  transform: translateX(0);
+}
+.wordmark-short {
+  opacity: 0;
+  transform: translateX(-8px);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+}
+.nav-scrolled .wordmark-full {
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+}
+.nav-scrolled .wordmark-short {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @utility btn-gold {

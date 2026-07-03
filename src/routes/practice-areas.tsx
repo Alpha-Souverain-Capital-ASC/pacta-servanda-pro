@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { PRACTICE_AREAS } from "@/lib/site-data";
+import { PRACTICE_ICONS } from "@/lib/practice-icons";
+import { useRevealSections } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/practice-areas")({
   head: () => ({
@@ -19,22 +21,27 @@ export const Route = createFileRoute("/practice-areas")({
 });
 
 function PracticeAreas() {
+  const rootRef = useRevealSections<HTMLDivElement>();
   return (
-    <>
+    <div ref={rootRef}>
       <PageHeader eyebrow="Practice Areas" title="Our Expertise" subtitle="Comprehensive legal solutions across nine specialized practice areas." />
       <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRACTICE_AREAS.map((p) => (
-            <div key={p.slug} className="bg-white p-7 md:p-8 border border-neutral-200 hover:border-l-4 hover:border-l-brand-gold transition-all">
-              <h2 className="font-display text-2xl font-semibold text-brand-green mb-3">{p.title}</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">{p.long}</p>
-              <Link to="/contact" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
-            </div>
-          ))}
+          {PRACTICE_AREAS.map((p) => {
+            const Icon = PRACTICE_ICONS[p.slug];
+            return (
+              <div key={p.slug} className="bg-white p-7 md:p-8 border border-neutral-200 card-lift">
+                {Icon && <Icon size={28} strokeWidth={1.5} className="text-brand-gold mb-4" />}
+                <h2 className="font-display text-2xl font-semibold text-brand-green mb-3">{p.title}</h2>
+                <p className="text-sm text-brand-dark-text/70 leading-relaxed mb-6">{p.long}</p>
+                <Link to="/contact" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <CtaBanner />
-    </>
+      <CtaBanner buttonLabel="Book a Consultation" />
+    </div>
   );
 }

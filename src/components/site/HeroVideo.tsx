@@ -9,12 +9,21 @@ const VIDEOS = [
 
 const SLIDE_MS = 6000;
 
+// 1x1 transparent poster fallback
+const POSTER =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
 export function HeroVideo() {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
   const [errored, setErrored] = useState<boolean[]>(() => VIDEOS.map(() => false));
+  const [parallax, setParallax] = useState(0);
   const refs = useRef<(HTMLVideoElement | null)[]>([]);
-  const startRef = useRef<number>(performance.now());
+  const startRef = useRef<number>(0);
+
+  useEffect(() => {
+    startRef.current = performance.now();
+  }, []);
 
   useEffect(() => {
     const v = refs.current[active];
@@ -46,35 +55,55 @@ export function HeroVideo() {
     };
   }, [active]);
 
+  useEffect(() => {
+    const onScroll = () => setParallax(window.scrollY * 0.2);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden bg-brand-green">
-      {VIDEOS.map((v, i) => (
-        <video
-          key={v.url}
-          ref={(el) => {
-            refs.current[i] = el;
-          }}
-          src={v.url}
-          muted
-          loop
-          playsInline
-          autoPlay
-          preload="auto"
-          onError={() =>
-            setErrored((prev) => {
-              if (prev[i]) return prev;
-              const next = [...prev];
-              next[i] = true;
-              return next;
-            })
-          }
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[600ms] ${
-            i === active && !errored[i] ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
-      <div className="absolute inset-0 bg-brand-green/60" />
-      <div className="absolute inset-0 diagonal-gold-lines pointer-events-none" />
+      <div
+        className="absolute inset-0"
+        style={{ transform: `translateY(${parallax}px)` }}
+      >
+        {VIDEOS.map((v, i) => (
+          <video
+            key={v.url}
+            ref={(el) => {
+              refs.current[i] = el;
+            }}
+            src={v.url}
+            poster={POSTER}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="auto"
+            onError={() =>
+              setErrored((prev) => {
+                if (prev[i]) return prev;
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              })
+            }
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[600ms] ${
+              i === active && !errored[i] ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Bottom scrim only, behind headline + CTAs */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(20,50,40,0.55) 0%, rgba(20,50,40,0) 55%)",
+        }}
+      />
 
       <div className="absolute bottom-12 left-0 right-0 px-6 z-10">
         <div className="max-w-xl mx-auto grid grid-cols-2 gap-6">

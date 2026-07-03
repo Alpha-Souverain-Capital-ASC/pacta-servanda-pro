@@ -139,7 +139,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col bg-white">
         <Navbar />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-[4.25rem] sm:pt-[4.75rem]">
           <Outlet />
         </main>
         <Footer />

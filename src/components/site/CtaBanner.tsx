@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 export function CtaBanner({
-  heading = "Ready to Get Legal Clarity?",
+  heading = "Ready to Discuss Legal Matters?",
   subtext = "Our partners are ready to discuss your matter.",
   buttonLabel = "Book a Consultation",
   variant = "solid",
@@ -12,12 +12,12 @@ export function CtaBanner({
   variant?: "solid" | "outline";
 }) {
   return (
-    <section className="bg-brand-green diagonal-gold-lines py-16 md:py-24 px-6 text-center">
+    <section className="bg-brand-green py-16 md:py-24 px-6 text-center">
       <div className="text-brand-gold text-2xl mb-6">▲</div>
-      <h2 className="font-display text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
+      <h2 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
         {heading}
       </h2>
-      <p className="text-white/80 text-sm sm:text-base md:text-lg mb-10 max-w-2xl mx-auto">
+      <p className="text-brand-cream-text/80 text-sm sm:text-base md:text-lg mb-10 max-w-2xl mx-auto">
         {subtext}
       </p>
       <Link
