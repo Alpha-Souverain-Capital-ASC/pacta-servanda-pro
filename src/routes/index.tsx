@@ -4,6 +4,7 @@ import { PRACTICE_ICONS } from "@/lib/practice-icons";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { HeroVideo } from "@/components/site/HeroVideo";
 import { TeamAvatar } from "@/components/site/TeamAvatar";
+import aboutImage from "@/assets/about-law.jpg.asset.json";
 import { useRevealSections } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
@@ -69,7 +70,7 @@ function Home() {
       {/* ABOUT US */}
       <section className="bg-brand-offwhite py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-mid w-full" />
+          <img src={aboutImage.url} alt="Gavel and legal documents" className="aspect-[4/5] w-full object-cover" loading="lazy" />
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">About Us</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
