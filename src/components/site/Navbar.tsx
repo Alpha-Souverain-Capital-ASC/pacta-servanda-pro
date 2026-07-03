@@ -37,6 +37,13 @@ export function Navbar() {
 
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
+
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      setDisplayText(scrolled ? SHORT : FULL);
+      return;
+    }
+
     const speed = 22;
 
     const typewriter = (
