@@ -124,35 +124,6 @@ main > div > section + section {
   box-shadow: 0 12px 24px -12px rgba(28,64,50,0.25);
 }
 
-/* Wordmark collapse animation */
-.wordmark-full,
-.wordmark-short {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  translate: 0 -50%;
-  transition: opacity 300ms linear, transform 300ms linear;
-  white-space: nowrap;
-  transform-origin: left center;
-}
-.wordmark-full {
-  opacity: 1;
-  transform: scaleX(1);
-}
-.wordmark-short {
-  opacity: 0;
-  transform: scaleX(0.92);
-}
-.nav-scrolled .wordmark-full {
-  opacity: 0;
-  transform: scaleX(0.92);
-  pointer-events: none;
-}
-.nav-scrolled .wordmark-short {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
 @utility btn-gold {
   background-color: var(--brand-gold);
   color: #ffffff;
