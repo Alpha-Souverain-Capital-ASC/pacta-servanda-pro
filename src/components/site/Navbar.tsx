@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -11,9 +11,14 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const FULL = "Perry & Ateng Advocates LLP";
+const SHORT = "P & A Advocates";
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [displayText, setDisplayText] = useState(FULL);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -29,6 +34,51 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    const speed = 22;
+
+    const typewriter = (
+      from: string,
+      to: string,
+      deleting: boolean
+    ) => {
+      let i = deleting ? from.length : 0;
+
+      const step = () => {
+        if (deleting) {
+          i--;
+          setDisplayText(from.slice(0, i));
+          if (i > 0) {
+            timerRef.current = setTimeout(step, speed);
+          } else {
+            timerRef.current = setTimeout(() => {
+              typewriter(to, to, false);
+            }, speed);
+          }
+        } else {
+          i++;
+          setDisplayText(to.slice(0, i));
+          if (i < to.length) {
+            timerRef.current = setTimeout(step, speed);
+          }
+        }
+      };
+
+      timerRef.current = setTimeout(step, speed);
+    };
+
+    if (scrolled) {
+      typewriter(FULL, SHORT, true);
+    } else {
+      typewriter(SHORT, FULL, true);
+    }
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [scrolled]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200 ${
@@ -36,18 +86,15 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
-        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center">
+        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label={FULL}>
           {/* Mobile: short only */}
           <span className="md:hidden font-display text-brand-green text-lg font-semibold tracking-wide whitespace-nowrap">
-            P &amp; A Advocates LLP
+            P &amp; A Advocates
           </span>
-          {/* Desktop: full ↔ short with animation */}
+          {/* Desktop: full ↔ short with typing animation */}
           <span className="hidden md:inline-block relative h-7 min-w-[16rem]">
-            <span className="wordmark-full font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide">
-              Perry &amp; Ateng Advocates LLP
-            </span>
-            <span className="wordmark-short font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide">
-              P &amp; A Advocates LLP
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
+              {displayText}
             </span>
           </span>
         </Link>
