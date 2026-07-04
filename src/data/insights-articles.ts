@@ -35,7 +35,7 @@ export const insights: InsightArticle[] = [
       "Fraudulent titles and double sales cost buyers millions every year. Here is the conveyancing process that stands between you and a costly mistake.",
     metaDescription:
       "A step-by-step guide to buying land or property in Mombasa safely — official searches, due diligence, sale agreements, stamp duty and title transfer under Kenyan law.",
-    coverImage: "/images/insights/buying-land-mombasa.jpg",
+    coverImage: "https://paadvocatesllp.com/images/insights/buying-land-mombasa.jpg",
     body: `Land is one of the most valuable — and most contested — assets in Kenya. Fraudulent titles, double sales, and disputed ownership are common enough that no purchase should proceed on trust alone. Conveyancing is the legal process of transferring property from seller to buyer, and done properly, it is what protects your money.
 
 ## Start with an official search
@@ -77,7 +77,7 @@ Every stage above is a point where a buyer acting alone can lose everything. Eng
       "Get a dismissal wrong and the Employment and Labour Relations Court can order up to 12 months' pay in compensation. Here is how to get it right.",
     metaDescription:
       "How to lawfully terminate an employee in Kenya under the Employment Act 2007 — fair reason, fair procedure, notice, redundancy rules and unfair-dismissal risk.",
-    coverImage: "/images/insights/terminating-employee-kenya.jpg",
+    coverImage: "https://paadvocatesllp.com/images/insights/terminating-employee-kenya.jpg",
     body: `Dismissing an employee is one of the most legally exposed decisions an employer makes. Get it wrong, and the Employment and Labour Relations Court can order compensation of up to twelve months' gross salary — or reinstatement. The good news is that the law is clear about what "getting it right" requires.
 
 ## You need a fair reason AND a fair procedure
@@ -119,7 +119,7 @@ An employee who believes they were unfairly terminated can bring a claim in the 
       "Die without a will and the law — not you — decides who inherits. Here is how intestate succession works in Kenya, and why the Coast has its own rules.",
     metaDescription:
       "How intestate succession works in Kenya when someone dies without a will — who inherits, letters of administration, and how Islamic succession applies on the Coast.",
-    coverImage: "/images/insights/dying-without-a-will-kenya.jpg",
+    coverImage: "https://paadvocatesllp.com/images/insights/dying-without-a-will-kenya.jpg",
     body: `When someone dies without a valid will, they die "intestate" — and the law, not their wishes, decides how their property is shared. For many families the result is delay, disputes, and outcomes the deceased never intended. Understanding the rules is the first step to avoiding that.
 
 ## Intestate versus testate
@@ -157,7 +157,7 @@ A properly drafted will lets you decide who inherits, appoint the people you tru
       "Registration is the easy part. The choices you make while doing it — structure, shareholding, articles — are what protect or expose you later.",
     metaDescription:
       "A founder's guide to registering a company in Kenya under the Companies Act 2015 — choosing a structure, the registration steps, and the compliance that follows.",
-    coverImage: "/images/insights/registering-company-kenya.jpg",
+    coverImage: "https://paadvocatesllp.com/images/insights/registering-company-kenya.jpg",
     body: `Registering a company in Kenya has never been faster — the process is largely online. But speed hides risk: the decisions founders make while registering, often without advice, are the ones that cause expensive problems years later. Here is what to get right from the start.
 
 ## Choose the right structure
@@ -195,7 +195,7 @@ Registering a company is straightforward; structuring it to protect the founders
       "Most business tenants sign leases they have not fully read — and discover the expensive clauses only when it is too late. Know what to look for.",
     metaDescription:
       "What to check before signing a commercial lease in Kenya — controlled tenancies under Cap 301, rent escalation, repair obligations, subletting and registration.",
-    coverImage: "/images/insights/commercial-lease-kenya.jpg",
+    coverImage: "https://paadvocatesllp.com/images/insights/commercial-lease-kenya.jpg",
     body: `A commercial lease is often a business's largest fixed commitment, yet many tenants sign one without reading it closely. The clauses that cause the most damage are rarely obvious on a first pass. Here is what to check before you commit.
 
 ## Is your tenancy "controlled"?

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { insights } from "@/data/insights-articles";
 
 const BASE_URL = "https://paadvocatesllp.com";
 
@@ -18,7 +19,14 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/about", changefreq: "monthly", priority: "0.8" },
           { path: "/practice-areas", changefreq: "monthly", priority: "0.9" },
           { path: "/team", changefreq: "monthly", priority: "0.8" },
+          { path: "/insights", changefreq: "weekly", priority: "0.8" },
           { path: "/contact", changefreq: "monthly", priority: "0.8" },
+          { path: "/book-consultation", changefreq: "monthly", priority: "0.7" },
+          ...insights.map((a) => ({
+            path: `/insights/${a.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
         ];
 
         const urls = entries.map((e) =>
