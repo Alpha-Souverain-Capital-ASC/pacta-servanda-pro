@@ -6,7 +6,12 @@ export const Route = createFileRoute("/book-consultation")({
     meta: [
       { title: "Book a Consultation — P&A Advocates LLP" },
       { name: "description", content: "Schedule a confidential consultation with the legal team at P&A Advocates LLP." },
+      { property: "og:title", content: "Book a Consultation — P&A Advocates LLP" },
+      { property: "og:description", content: "Schedule a confidential consultation with the legal team at P&A Advocates LLP." },
+      { property: "og:url", content: "https://paadvocatesllp.com/book-consultation" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/book-consultation" }],
   }),
   component: Book,
 });
