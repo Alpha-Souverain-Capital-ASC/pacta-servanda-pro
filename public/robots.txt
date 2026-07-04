@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://paadvocatesllp.com/sitemap.xml
