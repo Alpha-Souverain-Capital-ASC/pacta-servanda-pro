@@ -26,6 +26,26 @@ export const Route = createFileRoute("/insights/$slug")({
         { property: "og:url", content: `https://paadvocatesllp.com/insights/${article.slug}` },
       ],
       links: [{ rel: "canonical", href: `https://paadvocatesllp.com/insights/${article.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.metaDescription,
+            image: article.coverImage,
+            datePublished: article.date,
+            author: { "@type": "Person", name: article.author },
+            publisher: {
+              "@type": "Organization",
+              name: "P&A Advocates LLP",
+              logo: { "@type": "ImageObject", url: "https://paadvocatesllp.com/favicon.ico" },
+            },
+            mainEntityOfPage: `https://paadvocatesllp.com/insights/${article.slug}`,
+          }),
+        },
+      ],
     };
   },
   loader: ({ params }) => {
