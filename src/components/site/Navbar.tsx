@@ -106,11 +106,11 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
         <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label="Perry & Ateng Advocates LLP">
           {/* Mobile: short only */}
-          <span className="md:hidden font-display text-brand-green text-lg font-semibold tracking-wide whitespace-nowrap">
+          <span className="md:hidden font-display text-white text-lg font-semibold tracking-wide whitespace-nowrap">
             P &amp; A Advocates
           </span>
           {/* Desktop: full ↔ short with typing animation */}
-          <span className="hidden md:inline-block font-display text-brand-green text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
+          <span className="hidden md:inline-block font-display text-white text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
             <span>{prefix}</span>
             <span>{MIDDLE}</span>
             <span>{suffix}</span>
@@ -122,10 +122,10 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-[13px] lg:text-sm font-medium text-brand-green hover:text-brand-gold transition-colors relative py-2 whitespace-nowrap"
+              className="text-[13px] lg:text-sm font-medium text-white/90 hover:text-brand-gold transition-colors relative py-2 whitespace-nowrap"
               activeProps={{
                 className:
-                  "text-[13px] lg:text-sm font-medium text-brand-green relative py-2 border-b-2 border-brand-gold whitespace-nowrap",
+                  "text-[13px] lg:text-sm font-medium text-white relative py-2 border-b-2 border-brand-gold whitespace-nowrap",
               }}
               activeOptions={{ exact: l.to === "/" }}
             >
