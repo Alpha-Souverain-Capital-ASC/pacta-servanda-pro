@@ -71,6 +71,9 @@ function useAnimatedPiece(target: string, speed: number = 22) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled;
 
   const targetPrefix = scrolled ? PREFIX_SHORT : PREFIX_FULL;
   const targetSuffix = scrolled ? SUFFIX_SHORT : SUFFIX_FULL;
@@ -95,7 +98,9 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-brand-green border-b border-brand-green-mid nav-scrolled" : "bg-transparent border-b border-transparent"
+        transparent
+          ? "bg-transparent border-b border-transparent"
+          : "bg-brand-green border-b border-brand-green-mid nav-scrolled"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
