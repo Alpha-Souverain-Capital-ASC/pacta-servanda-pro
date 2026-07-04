@@ -105,37 +105,6 @@ export function HeroVideo() {
         }}
       />
 
-      <div className="absolute bottom-12 left-0 right-0 px-6 z-10">
-        <div className="max-w-xl mx-auto grid grid-cols-2 gap-6">
-          {VIDEOS.map((v, i) => {
-            const fill = i < active ? 1 : i === active ? progress : 0;
-            return (
-              <button
-                key={v.label}
-                onClick={() => setActive(i)}
-                className="text-center group"
-              >
-                <div className="h-0.5 bg-brand-gold-light/30 overflow-hidden">
-                  <div
-                    className="h-full bg-brand-gold"
-                    style={{
-                      width: `${fill * 100}%`,
-                      transition: i === active ? "none" : "width 200ms linear",
-                    }}
-                  />
-                </div>
-                <p
-                  className={`mt-3 text-[10px] tracking-[0.3em] uppercase ${
-                    i === active ? "text-white" : "text-white/60"
-                  }`}
-                >
-                  {v.label}
-                </p>
-              </button>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }
