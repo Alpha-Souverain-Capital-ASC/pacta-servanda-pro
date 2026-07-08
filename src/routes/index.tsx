@@ -112,11 +112,25 @@ function Home() {
             {PRACTICE_AREAS.map((p) => {
               const Icon = PRACTICE_ICONS[p.slug];
               return (
-                <div key={p.slug} className="bg-white border border-neutral-200 p-7 card-lift">
-                  {Icon && <Icon size={28} strokeWidth={1.5} className="text-brand-gold mb-4" />}
+                <Link
+                  key={p.slug}
+                  to="/practice-areas"
+                  hash={p.slug}
+                  className="block bg-white border border-neutral-200 p-7 card-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+                  aria-label={`${p.title} — P&A Advocates LLP, Mombasa Kenya`}
+                >
+                  {Icon && (
+                    <Icon
+                      size={28}
+                      strokeWidth={1.5}
+                      className="text-brand-gold mb-4"
+                      aria-hidden="true"
+                    />
+                  )}
                   <h3 className="font-display text-xl font-semibold text-brand-green mb-2">{p.title}</h3>
-                  <p className="text-sm text-brand-dark-text/70 leading-relaxed">{p.short}</p>
-                </div>
+                  <p className="sr-only">{p.title} lawyer Mombasa Kenya — P&amp;A Advocates LLP. {p.short}</p>
+                  <p aria-hidden="true" className="text-sm text-brand-dark-text/70 leading-relaxed">{p.short}</p>
+                </Link>
               );
             })}
           </div>
