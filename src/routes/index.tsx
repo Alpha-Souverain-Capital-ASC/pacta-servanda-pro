@@ -120,3 +120,25 @@ function Home() {
     </div>
   );
 }
+
+function PracticeAreasGrid() {
+  const [revealed, setRevealed] = useState<string | null>(null);
+  return (
+    <div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      onMouseLeave={() => setRevealed(null)}
+    >
+      {PRACTICE_AREAS.map((p) => (
+        <PracticeAreaCard
+          key={p.slug}
+          slug={p.slug}
+          title={p.title}
+          short={p.short}
+          isRevealed={revealed === p.slug}
+          onReveal={setRevealed}
+        />
+      ))}
+    </div>
+  );
+}
+
