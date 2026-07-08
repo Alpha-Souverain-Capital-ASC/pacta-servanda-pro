@@ -51,7 +51,7 @@ function Contact() {
       <section
         className="py-16 md:py-24 px-6 relative"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.94)), url(${buildingImage.url})`,
+          backgroundImage: `linear-gradient(rgba(244,240,230,0.55), rgba(244,240,230,0.7)), url(${buildingImage.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
