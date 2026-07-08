@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { PRACTICE_AREAS, TEAM } from "@/lib/site-data";
-import { PRACTICE_ICONS } from "@/lib/practice-icons";
+
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { HeroVideo } from "@/components/site/HeroVideo";
 import { TeamAvatar } from "@/components/site/TeamAvatar";
+import { PracticeAreaCard } from "@/components/site/PracticeAreaCard";
 import aboutImage from "@/assets/about-law.jpg.asset.json";
 import { useRevealSections } from "@/hooks/use-reveal";
 
@@ -108,32 +110,8 @@ function Home() {
         <div className="max-w-7xl mx-auto">
           <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-4">Our Expertise</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green text-center font-semibold mb-10 md:mb-14">Comprehensive Legal Solutions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PRACTICE_AREAS.map((p) => {
-              const Icon = PRACTICE_ICONS[p.slug];
-              return (
-                <Link
-                  key={p.slug}
-                  to="/practice-areas"
-                  hash={p.slug}
-                  className="block bg-white border border-neutral-200 p-7 card-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
-                  aria-label={`${p.title} — P&A Advocates LLP, Mombasa Kenya`}
-                >
-                  {Icon && (
-                    <Icon
-                      size={28}
-                      strokeWidth={1.5}
-                      className="text-brand-gold mb-4"
-                      aria-hidden="true"
-                    />
-                  )}
-                  <h3 className="font-display text-xl font-semibold text-brand-green mb-2">{p.title}</h3>
-                  <p className="sr-only">{p.title} lawyer Mombasa Kenya — P&amp;A Advocates LLP. {p.short}</p>
-                  <p aria-hidden="true" className="text-sm text-brand-dark-text/70 leading-relaxed">{p.short}</p>
-                </Link>
-              );
-            })}
-          </div>
+          <PracticeAreasGrid />
+
           <div className="text-center mt-10">
             <Link to="/practice-areas" className="btn-outline-gold inline-block">View All Practice Areas →</Link>
           </div>
@@ -142,3 +120,25 @@ function Home() {
     </div>
   );
 }
+
+function PracticeAreasGrid() {
+  const [revealed, setRevealed] = useState<string | null>(null);
+  return (
+    <div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      onMouseLeave={() => setRevealed(null)}
+    >
+      {PRACTICE_AREAS.map((p) => (
+        <PracticeAreaCard
+          key={p.slug}
+          slug={p.slug}
+          title={p.title}
+          short={p.short}
+          isRevealed={revealed === p.slug}
+          onReveal={setRevealed}
+        />
+      ))}
+    </div>
+  );
+}
+
