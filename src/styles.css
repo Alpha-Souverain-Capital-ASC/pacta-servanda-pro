@@ -80,16 +80,40 @@
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
 
-/* Cream sections get a marbled gold + green wash */
+/* Cream sections get a marbled gold + green wash (parallax on scroll) */
 .bg-brand-offwhite {
   background-color: var(--brand-offwhite);
   background-image:
-    radial-gradient(ellipse at 18% 22%, rgba(184,134,43,0.22), transparent 55%),
-    radial-gradient(ellipse at 82% 18%, rgba(28,64,50,0.18), transparent 60%),
-    radial-gradient(ellipse at 65% 78%, rgba(184,134,43,0.20), transparent 55%),
-    radial-gradient(ellipse at 12% 88%, rgba(28,64,50,0.16), transparent 60%),
-    radial-gradient(ellipse at 50% 50%, rgba(217,177,88,0.10), transparent 70%);
+    linear-gradient(rgba(244,240,230,0.82), rgba(244,240,230,0.88)),
+    url("/__l5e/assets-v1/46534f70-2216-44ed-9cb7-860ec05534d6/marble-cream.jpg");
+  background-size: cover, 1400px auto;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  background-repeat: no-repeat, repeat;
 }
+
+/* Full-page fixed image backgrounds — image visible behind all sections */
+.page-bg-fixed {
+  position: relative;
+  isolation: isolate;
+}
+.page-bg-fixed::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--page-bg-image);
+}
+
+/* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
+.bg-cream-veil {
+  background-color: rgba(244, 240, 230, 0.72);
+  backdrop-filter: blur(2px);
+}
+
 
 /* 2px gold divider between adjacent sections site-wide */
 main > section + section,

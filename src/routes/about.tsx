@@ -28,10 +28,10 @@ const VALUES = [
 
 function About() {
   return (
-    <>
+    <div className="page-bg-fixed" style={{ ["--page-bg-image" as string]: `url(${tusksImage.url})` }}>
       <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." backgroundImage={tusksImage.url} />
 
-      <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
+      <section className="py-16 md:py-24 px-6 bg-cream-veil">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div
             className="aspect-[4/5] w-full bg-brand-green"
@@ -68,7 +68,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
+      <section className="py-16 md:py-24 px-6 bg-cream-veil">
         <div className="max-w-6xl mx-auto">
           <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-3">Core Values</p>
           <h2 className="font-display text-3xl sm:text-4xl text-brand-green text-center font-semibold mb-12 md:mb-14">What We Stand For</h2>
@@ -84,6 +84,6 @@ function About() {
       </section>
 
       <CtaBanner />
-    </>
+    </div>
   );
 }

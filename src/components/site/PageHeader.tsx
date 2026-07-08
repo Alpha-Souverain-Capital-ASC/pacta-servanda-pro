@@ -15,9 +15,10 @@ export function PageHeader({
       style={
         backgroundImage
           ? {
-              backgroundImage: `linear-gradient(rgba(28,64,50,0.78), rgba(28,64,50,0.85)), url(${backgroundImage})`,
+              backgroundImage: `linear-gradient(rgba(28,64,50,0.55), rgba(28,64,50,0.65)), url(${backgroundImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundAttachment: "fixed",
             }
           : undefined
       }
