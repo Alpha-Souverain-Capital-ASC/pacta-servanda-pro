@@ -80,16 +80,24 @@
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
 
-/* Cream sections get a marbled gold + green wash (parallax on scroll) */
+/* Site-wide marbled gold + green wash — fixed for parallax on scroll.
+   Sits behind all page content; page-bg-fixed pages (About, Contact)
+   layer their own image on top via ::before. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/__l5e/assets-v1/46534f70-2216-44ed-9cb7-860ec05534d6/marble-cream.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Cream-tinted sections stay translucent so the fixed marble shows through */
 .bg-brand-offwhite {
-  background-color: var(--brand-offwhite);
-  background-image:
-    linear-gradient(rgba(244,240,230,0.82), rgba(244,240,230,0.88)),
-    url("/__l5e/assets-v1/46534f70-2216-44ed-9cb7-860ec05534d6/marble-cream.jpg");
-  background-size: cover, 1400px auto;
-  background-position: center, center;
-  background-attachment: fixed, fixed;
-  background-repeat: no-repeat, repeat;
+  background-color: rgba(244, 240, 230, 0.72);
+  backdrop-filter: blur(2px);
 }
 
 /* Full-page fixed image backgrounds — image visible behind all sections */
