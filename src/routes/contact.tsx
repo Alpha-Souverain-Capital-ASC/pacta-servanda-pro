@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { useState } from "react";
+import buildingImage from "@/assets/mombasa-building.jpg.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -47,8 +48,16 @@ function Contact() {
     <>
       <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." />
 
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14">
+      <section
+        className="py-16 md:py-24 px-6 relative"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.94)), url(${buildingImage.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 relative">
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Contact Information</p>
             <h2 className="font-display text-3xl sm:text-4xl text-brand-green font-semibold mb-8">Visit, call, or write.</h2>

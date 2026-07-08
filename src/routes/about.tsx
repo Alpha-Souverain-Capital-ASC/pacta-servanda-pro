@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import tusksImage from "@/assets/tusks-bw.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -28,11 +29,18 @@ const VALUES = [
 function About() {
   return (
     <>
-      <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." />
+      <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." backgroundImage={tusksImage.url} />
 
       <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div className="aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-mid w-full" />
+          <div
+            className="aspect-[4/5] w-full bg-brand-green"
+            style={{
+              backgroundImage: `linear-gradient(rgba(28,64,50,0.35), rgba(28,64,50,0.55)), url(${tusksImage.url})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Story</p>
             <h2 className="font-display text-3xl sm:text-4xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
