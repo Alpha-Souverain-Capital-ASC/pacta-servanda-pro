@@ -81,14 +81,13 @@
 }
 
 /* Site-wide marbled gold + green wash — fixed for parallax on scroll.
-   Sits behind all page content; page-bg-fixed pages (About, Contact)
-   layer their own image on top via ::before. */
-body::before {
+   Sits behind all page content; page-bg-fixed pages layer their own image on top via ::before. */
+.site-marble-bg::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url("/__l5e/assets-v1/46534f70-2216-44ed-9cb7-860ec05534d6/marble-cream.jpg");
+  background-image: var(--marble-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -96,8 +95,7 @@ body::before {
 
 /* Cream-tinted sections stay translucent so the fixed marble shows through */
 .bg-brand-offwhite {
-  background-color: rgba(244, 240, 230, 0.72);
-  backdrop-filter: blur(2px);
+  background-color: rgba(244, 240, 230, 0.28);
 }
 
 /* Full-page fixed image backgrounds — image visible behind all sections */
