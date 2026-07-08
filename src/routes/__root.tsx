@@ -141,7 +141,10 @@ function RootComponent() {
   const isHome = pathname === "/";
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col bg-white">
+      <div
+        className="site-marble-bg min-h-screen flex flex-col"
+        style={{ ["--marble-bg" as string]: `url(${marbleImage.url})` }}
+      >
         <Navbar />
         <main className={`flex-1 ${isHome ? "" : "pt-[4.25rem] sm:pt-[4.75rem]"}`}>
           <Outlet />
