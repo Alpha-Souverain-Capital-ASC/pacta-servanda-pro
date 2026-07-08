@@ -30,12 +30,13 @@ function PracticeAreas() {
           {PRACTICE_AREAS.map((p) => {
             const Icon = PRACTICE_ICONS[p.slug];
             return (
-              <div key={p.slug} className="bg-white p-7 md:p-8 border border-neutral-200 card-lift">
-                {Icon && <Icon size={28} strokeWidth={1.5} className="text-brand-gold mb-4" />}
+              <article id={p.slug} key={p.slug} className="scroll-mt-28 bg-white p-7 md:p-8 border border-neutral-200 card-lift">
+                {Icon && <Icon size={28} strokeWidth={1.5} className="text-brand-gold mb-4" aria-hidden="true" />}
                 <h2 className="font-display text-2xl font-semibold text-brand-green mb-3">{p.title}</h2>
+                <p className="sr-only">{p.title} lawyer Mombasa Kenya — P&amp;A Advocates LLP.</p>
                 <p className="text-sm text-brand-dark-text/70 leading-relaxed mb-6">{p.long}</p>
                 <Link to="/contact" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
-              </div>
+              </article>
             );
           })}
         </div>
