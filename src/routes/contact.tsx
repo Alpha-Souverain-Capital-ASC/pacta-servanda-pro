@@ -45,8 +45,9 @@ function Contact() {
   };
 
   return (
-    <>
-      <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." />
+    <div className="page-bg-fixed" style={{ ["--page-bg-image" as string]: `url(${buildingImage.url})` }}>
+      <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." backgroundImage={buildingImage.url} />
+
 
       <section
         className="py-16 md:py-24 px-6 relative"
