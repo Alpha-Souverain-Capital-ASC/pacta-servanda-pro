@@ -68,6 +68,16 @@ function useAnimatedPiece(target: string, speed: number = 22) {
   return text;
 }
 
+function renderWithGoldAmp(text: string) {
+  const parts = text.split("&");
+  return parts.flatMap((seg, i) =>
+    i < parts.length - 1
+      ? [<span key={`s${i}`}>{seg}</span>, <span key={`a${i}`} className="text-brand-gold">&amp;</span>]
+      : [<span key={`s${i}`}>{seg}</span>]
+  );
+}
+
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -107,11 +117,11 @@ export function Navbar() {
         <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label="Perry & Ateng Advocates LLP">
           {/* Mobile: short only */}
           <span className="md:hidden font-display text-white text-lg font-semibold tracking-wide whitespace-nowrap">
-            P &amp; A Advocates
+            P <span className="text-brand-gold">&amp;</span> A Advocates
           </span>
           {/* Desktop: full ↔ short with typing animation */}
           <span className="hidden md:inline-block font-display text-white text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
-            <span>{prefix}</span>
+            <span>{renderWithGoldAmp(prefix)}</span>
             <span>{MIDDLE}</span>
             <span>{suffix}</span>
           </span>
