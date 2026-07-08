@@ -95,6 +95,7 @@
 /* Full-page fixed image backgrounds — image visible behind all sections */
 .page-bg-fixed {
   position: relative;
+  isolation: isolate;
 }
 .page-bg-fixed::before {
   content: "";
