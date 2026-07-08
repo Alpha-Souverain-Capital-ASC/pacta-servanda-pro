@@ -107,6 +107,12 @@
   background-image: var(--page-bg-image);
 }
 
+/* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
+.bg-cream-veil {
+  background-color: rgba(244, 240, 230, 0.72);
+  backdrop-filter: blur(2px);
+}
+
 
 /* 2px gold divider between adjacent sections site-wide */
 main > section + section,
