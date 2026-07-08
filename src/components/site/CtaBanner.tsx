@@ -13,7 +13,6 @@ export function CtaBanner({
 }) {
   return (
     <section className="bg-brand-green py-16 md:py-24 px-6 text-center">
-      <div className="text-brand-gold text-2xl mb-6">▲</div>
       <h2 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
         {heading}
       </h2>

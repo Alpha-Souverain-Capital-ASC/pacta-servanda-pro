@@ -41,8 +41,8 @@
   --radius: 0;
   --brand-green: #1c4032;
   --brand-green-mid: #26543f;
-  --brand-gold: #caa64a;
-  --brand-gold-light: #e6c987;
+  --brand-gold: #b8862b;
+  --brand-gold-light: #d9b158;
   --brand-offwhite: #f4f0e6;
   --brand-cream-text: #f0ead9;
   --brand-dark-text: #2a2a24;
@@ -55,13 +55,13 @@
   --secondary-foreground: #1c4032;
   --muted: #f4f0e6;
   --muted-foreground: #5b6b62;
-  --accent: #caa64a;
+  --accent: #b8862b;
   --accent-foreground: #ffffff;
   --card: #ffffff;
   --card-foreground: #1c4032;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #caa64a;
+  --ring: #b8862b;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
   --popover: #ffffff;
@@ -80,11 +80,15 @@
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
 
-/* Cream sections get a faint dot texture */
+/* Cream sections get a marbled gold + green wash */
 .bg-brand-offwhite {
   background-color: var(--brand-offwhite);
-  background-image: radial-gradient(rgba(28,64,50,0.09) 1px, transparent 1px);
-  background-size: 9px 9px;
+  background-image:
+    radial-gradient(ellipse at 18% 22%, rgba(184,134,43,0.22), transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(28,64,50,0.18), transparent 60%),
+    radial-gradient(ellipse at 65% 78%, rgba(184,134,43,0.20), transparent 55%),
+    radial-gradient(ellipse at 12% 88%, rgba(28,64,50,0.16), transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(217,177,88,0.10), transparent 70%);
 }
 
 /* 2px gold divider between adjacent sections site-wide */
@@ -134,8 +138,9 @@ main > div > section + section {
   padding: 0.9rem 2rem;
   font-size: 0.85rem;
   display: inline-block;
+  border-radius: 0.5rem;
   transition: background-color 0.2s ease;
-  &:hover { background-color: #b38a25; }
+  &:hover { background-color: #8f651b; }
 }
 
 @utility btn-outline-gold {
@@ -148,6 +153,7 @@ main > div > section + section {
   padding: 0.9rem 2rem;
   font-size: 0.85rem;
   display: inline-block;
+  border-radius: 0.5rem;
   transition: all 0.2s ease;
   &:hover { background-color: var(--brand-gold); color: #ffffff; }
 }
@@ -162,6 +168,7 @@ main > div > section + section {
   padding: 0.9rem 2rem;
   font-size: 0.85rem;
   display: inline-block;
+  border-radius: 0.5rem;
   transition: all 0.2s ease;
   &:hover { background-color: #ffffff; color: var(--brand-green); }
 }
