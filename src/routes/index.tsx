@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { PRACTICE_AREAS, TEAM } from "@/lib/site-data";
-import { PRACTICE_ICONS } from "@/lib/practice-icons";
+
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { HeroVideo } from "@/components/site/HeroVideo";
 import { TeamAvatar } from "@/components/site/TeamAvatar";
