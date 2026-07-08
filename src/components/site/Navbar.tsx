@@ -75,6 +75,8 @@ function renderWithGoldAmp(text: string) {
       ? [<span key={`s${i}`}>{seg}</span>, <span key={`a${i}`} className="text-brand-gold">&amp;</span>]
       : [<span key={`s${i}`}>{seg}</span>]
   );
+}
+
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
