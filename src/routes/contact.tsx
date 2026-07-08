@@ -49,15 +49,7 @@ function Contact() {
       <PageHeader eyebrow="Contact" title="Get in Touch" subtitle="We're here to help. Reach out and our team will respond promptly." backgroundImage={buildingImage.url} />
 
 
-      <section
-        className="py-16 md:py-24 px-6 relative"
-        style={{
-          backgroundImage: `linear-gradient(rgba(244,240,230,0.55), rgba(244,240,230,0.7)), url(${buildingImage.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <section className="py-16 md:py-24 px-6 relative bg-cream-veil">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 relative">
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Contact Information</p>
