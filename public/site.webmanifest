@@ -1,0 +1,11 @@
+{
+  "name": "P&A Advocates LLP",
+  "short_name": "P&A",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1c4032",
+  "background_color": "#1c4032",
+  "display": "standalone"
+}
