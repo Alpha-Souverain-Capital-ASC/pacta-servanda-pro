@@ -122,7 +122,7 @@ function Contact() {
       <section className="bg-cream-veil py-16 px-6 text-center">
         <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Visit Our Offices</p>
         <h2 className="font-display text-3xl text-brand-green">Kaderbhoy Building, First Floor, Room 13</h2>
-        <p className="text-muted-foreground mt-2">Nkurumah Road, Mombasa</p>
+        <p className="text-muted-foreground mt-2">Nkurumah Road, Mombasa, Kenya</p>
       </section>
     </div>
 
