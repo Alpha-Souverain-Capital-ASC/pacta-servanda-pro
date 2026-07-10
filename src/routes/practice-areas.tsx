@@ -28,7 +28,6 @@ function PracticeAreas() {
         <div className="max-w-6xl mx-auto">
           {PRACTICE_AREAS.map((p, idx) => {
             const Icon = PRACTICE_ICONS[p.slug];
-            const imgSrc = `https://picsum.photos/seed/${p.slug}-editorial/900/700`;
             const isEven = idx % 2 === 0;
             return (
               <article
@@ -46,16 +45,16 @@ function PracticeAreas() {
                     className="md:col-span-6 relative aspect-[5/4] overflow-hidden rounded-sm"
                   >
                     <img
-                      src={imgSrc}
+                      src={p.image}
                       alt={`${p.title} — P&A Advocates LLP, Mombasa`}
                       loading="lazy"
+                      width={1024}
+                      height={820}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-brand-green/40 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 bg-brand-green/90 backdrop-blur-sm px-3 py-1 text-[10px] tracking-[0.3em] uppercase text-brand-gold">
-                      0{idx + 1}
-                    </div>
                   </div>
+
 
                   <div data-reveal data-reveal-delay="120" className="md:col-span-6">
                     <div className="flex items-center gap-3 mb-4">
