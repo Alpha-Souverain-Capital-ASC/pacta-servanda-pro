@@ -15,7 +15,7 @@ export function Footer() {
             Trusted Legal Excellence. Personalised Legal Support.
           </p>
           <p className="text-sm text-white/70">Kaderbhoy Building, First Floor, Room 13</p>
-          <p className="text-sm text-white/70">Nkurumah Road, Mombasa</p>
+          <p className="text-sm text-white/70">Nkurumah Road, Mombasa, Kenya</p>
           <p className="text-sm text-white/70 mt-2">+254 757 688 891</p>
           <p className="text-sm text-white/70">paadvocatesllp@gmail.com</p>
         </div>
@@ -30,10 +30,10 @@ export function Footer() {
         </div>
         <div>
           <h4 className="text-xs uppercase tracking-widest text-brand-gold mb-4">Contact</h4>
-          <p className="text-sm text-white/85">Kaderbhoy Building, First Floor</p>
-          <p className="text-sm text-white/85">Room 13, Nkurumah Road</p>
-          <p className="text-sm text-white/85">Mombasa, Kenya</p>
+          <p className="text-sm text-white/85">Kaderbhoy Building, First Floor, Room 13</p>
+          <p className="text-sm text-white/85">Nkurumah Road, Mombasa, Kenya</p>
           <p className="text-sm text-white/85 mt-3">+254 757 688 891</p>
+          <p className="text-sm text-white/85">paadvocatesllp@gmail.com</p>
         </div>
       </div>
       <div className="border-t border-white/10">

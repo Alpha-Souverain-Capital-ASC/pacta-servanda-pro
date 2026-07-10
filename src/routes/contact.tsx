@@ -58,7 +58,7 @@ function Contact() {
               <div>
                 <p className="text-xs tracking-[0.25em] uppercase text-brand-gold mb-1">Address</p>
                 <p className="text-brand-green">Kaderbhoy Building, First Floor, Room 13</p>
-                <p className="text-brand-green">Nkurumah Road, Mombasa</p>
+                <p className="text-brand-green">Nkurumah Road, Mombasa, Kenya</p>
               </div>
               <div>
                 <p className="text-xs tracking-[0.25em] uppercase text-brand-gold mb-1">Phone</p>
