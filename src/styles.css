@@ -93,9 +93,10 @@
   background-repeat: no-repeat;
 }
 
-/* Cream-tinted sections stay translucent so the fixed marble shows through */
+/* Cream-tinted sections — translucent enough to show marble grain,
+   opaque enough to keep body text legible. */
 .bg-brand-offwhite {
-  background-color: rgba(244, 240, 230, 0.28);
+  background-color: rgba(244, 240, 230, 0.55);
 }
 
 /* Full-page fixed image backgrounds — image visible behind all sections */
