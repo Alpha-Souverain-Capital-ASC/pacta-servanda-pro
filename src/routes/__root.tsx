@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "P&A Advocates LLP",
           url: "https://paadvocatesllp.com/",
-          logo: "https://paadvocatesllp.com/favicon.ico",
+          logo: "https://paadvocatesllp.com/apple-touch-icon.png",
         }),
       },
     ],
