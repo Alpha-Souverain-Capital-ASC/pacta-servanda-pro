@@ -44,7 +44,7 @@ export function BrandLogo({
           y1="14"
           x2="160"
           y2="170"
-          stroke="#d9b158"
+          stroke="var(--brand-gold-light)"
           strokeWidth="1.4"
         />
 
@@ -54,7 +54,7 @@ export function BrandLogo({
           y="72"
           fontSize="34"
           textAnchor="middle"
-          fill="#d9b158"
+          fill="var(--brand-gold-light)"
           fontStyle="italic"
         >
           &amp;
