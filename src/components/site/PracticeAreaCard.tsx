@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
 
-// NOTE: Placeholder photography via picsum.photos — replace with real,
-// descriptively-named images (e.g. corporate-law-mombasa.jpg) when supplied.
 export function PracticeAreaCard({
   slug,
   title,
+  image,
 }: {
   slug: string;
   title: string;
+  image: string;
 }) {
-  const imgSrc = `https://picsum.photos/seed/${slug}/600/450`;
+  const imgSrc = image;
   const alt = `${title} lawyer Mombasa Kenya — P&A Advocates LLP`;
 
   return (
