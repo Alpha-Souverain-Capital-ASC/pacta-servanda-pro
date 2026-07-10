@@ -41,8 +41,8 @@
   --radius: 0;
   --brand-green: #1c4032;
   --brand-green-mid: #26543f;
-  --brand-gold: #b8862b;
-  --brand-gold-light: #d9b158;
+  --brand-gold: #c49030;
+  --brand-gold-light: #e2b866;
   --brand-offwhite: #f4f0e6;
   --brand-cream-text: #f4efdd;
   --brand-dark-text: #1c1c17;
@@ -55,13 +55,13 @@
   --secondary-foreground: #1c4032;
   --muted: #f4f0e6;
   --muted-foreground: #3f4c44;
-  --accent: #b8862b;
+  --accent: #c49030;
   --accent-foreground: #ffffff;
   --card: #ffffff;
   --card-foreground: #1c4032;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #b8862b;
+  --ring: #c49030;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
   --popover: #ffffff;
@@ -161,9 +161,9 @@ main > div > section + section::before {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(184, 134, 43, 0.55) 25%,
-    rgba(184, 134, 43, 0.9) 50%,
-    rgba(184, 134, 43, 0.55) 75%,
+    rgba(196, 144, 48, 0.55) 25%,
+    rgba(196, 144, 48, 0.9) 50%,
+    rgba(196, 144, 48, 0.55) 75%,
     transparent
   );
   pointer-events: none;
@@ -224,7 +224,7 @@ main > div > section + section::before {
   display: inline-block;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
-  &:hover { background-color: #8f651b; }
+  &:hover { background-color: #a0731f; }
 }
 
 @utility btn-outline-gold {

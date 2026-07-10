@@ -9,7 +9,7 @@ export function OrnamentDivider({
   width?: number;
   tone?: "gold" | "cream";
 }) {
-  const color = tone === "gold" ? "#b8862b" : "#f0ead9";
+  const color = tone === "gold" ? "var(--brand-gold)" : "#f4efdd";
   const gradientId = `ornament-grad-${tone}`;
   return (
     <div className={`flex justify-center ${className ?? ""}`} aria-hidden="true">
