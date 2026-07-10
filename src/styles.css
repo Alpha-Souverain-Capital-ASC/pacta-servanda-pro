@@ -161,9 +161,9 @@ main > div > section + section::before {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(184, 134, 43, 0.55) 25%,
-    rgba(184, 134, 43, 0.9) 50%,
-    rgba(184, 134, 43, 0.55) 75%,
+    rgba(196, 144, 48, 0.55) 25%,
+    rgba(196, 144, 48, 0.9) 50%,
+    rgba(196, 144, 48, 0.55) 75%,
     transparent
   );
   pointer-events: none;
@@ -224,7 +224,7 @@ main > div > section + section::before {
   display: inline-block;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
-  &:hover { background-color: #8f651b; }
+  &:hover { background-color: #a0731f; }
 }
 
 @utility btn-outline-gold {
