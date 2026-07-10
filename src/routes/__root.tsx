@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import marbleImage from "../assets/marble-cream.jpg.asset.json";
+import { useGlobalReveal } from "../hooks/use-reveal";
 
 function NotFoundComponent() {
   return (
@@ -139,6 +140,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  useGlobalReveal();
   return (
     <QueryClientProvider client={queryClient}>
       <div

@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { PRACTICE_AREAS, TEAM } from "@/lib/site-data";
 
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -53,13 +52,21 @@ function Home() {
       <section className="relative min-h-[calc(100vh-4.75rem)] flex flex-col items-center justify-center px-6 text-center overflow-hidden hero-glow">
         <HeroVideo />
         <div className="relative z-10 flex flex-col items-center w-full">
-          <h1 className="font-display text-white text-[32px] sm:text-[42px] md:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl">
+          <h1 className="font-display text-white text-[32px] sm:text-[42px] md:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
             Trusted <span className="text-brand-gold">Legal</span> Excellence,<br />Unrivaled <span className="text-brand-gold">Personal</span> Support.
           </h1>
-          <p className="text-white/80 mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl">
+          <p
+            data-reveal
+            data-reveal-delay="120"
+            className="text-white/90 mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]"
+          >
             P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
           </p>
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-stretch sm:items-center px-4 sm:px-0 max-w-xs sm:max-w-none mx-auto">
+          <div
+            data-reveal
+            data-reveal-delay="240"
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-stretch sm:items-center px-4 sm:px-0 max-w-xs sm:max-w-none mx-auto"
+          >
             <Link to="/contact" className="btn-gold text-center min-h-11">Book a Consultation</Link>
             <Link to="/practice-areas" className="btn-outline-white text-center min-h-11">Explore Practice Areas</Link>
           </div>
@@ -72,14 +79,14 @@ function Home() {
       {/* ABOUT US */}
       <section className="bg-brand-offwhite py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <img src={aboutImage.url} alt="Gavel and legal documents" className="aspect-[4/5] w-full object-cover" loading="lazy" />
+          <img data-reveal src={aboutImage.url} alt="Gavel and legal documents" className="aspect-[4/5] w-full object-cover" loading="lazy" />
           <div>
-            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">About Us</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
-            <p className="text-brand-dark-text/80 text-sm sm:text-base leading-relaxed mb-6">
+            <p data-reveal className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">About Us</p>
+            <h2 data-reveal data-reveal-delay="80" className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
+            <p data-reveal data-reveal-delay="160" className="text-brand-dark-text/85 text-sm sm:text-base leading-relaxed mb-6">
               P&amp;A Advocates LLP is a full-service law firm in Kenya committed to expert legal services across a wide range of practice areas — driven by integrity, professionalism, and a deep commitment to results-oriented legal solutions.
             </p>
-            <Link to="/about" className="btn-outline-gold inline-block">Learn More →</Link>
+            <Link data-reveal data-reveal-delay="240" to="/about" className="btn-outline-gold inline-block">Learn More →</Link>
           </div>
         </div>
       </section>
@@ -87,12 +94,12 @@ function Home() {
       {/* OUR TEAM */}
       <section className="bg-brand-green py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Team</p>
-          <h2 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl font-semibold">Meet Our Advocates</h2>
-          <p className="text-brand-cream-text/80 mt-3 text-sm sm:text-base">Experienced advocates committed to your success.</p>
+          <p data-reveal className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Team</p>
+          <h2 data-reveal data-reveal-delay="80" className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl font-semibold">Meet Our Advocates</h2>
+          <p data-reveal data-reveal-delay="160" className="text-brand-cream-text/85 mt-3 text-sm sm:text-base">Experienced advocates committed to your success.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12 md:mt-14 justify-items-center">
-            {TEAM.map((m) => (
-              <div key={m.name} className="flex flex-col items-center card-lift p-4">
+            {TEAM.map((m, i) => (
+              <div key={m.name} data-reveal data-reveal-delay={String(i * 120)} className="flex flex-col items-center card-lift p-4">
                 <TeamAvatar name={m.name} size={128} />
                 <h3 className="font-display text-brand-cream-text text-2xl mt-5">{m.name}</h3>
                 <p className="text-brand-gold text-xs tracking-[0.25em] uppercase mt-1">{m.title}</p>
@@ -107,10 +114,16 @@ function Home() {
 
       {/* PRACTICE AREAS */}
       <section className="bg-brand-offwhite py-16 md:py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-4">Our Expertise</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green text-center font-semibold mb-10 md:mb-14">Comprehensive Legal Solutions</h2>
-          <PracticeAreasGrid />
+        <div className="max-w-6xl mx-auto">
+          <p data-reveal className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-4">Our Expertise</p>
+          <h2 data-reveal data-reveal-delay="80" className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green text-center font-semibold mb-10 md:mb-14">Comprehensive Legal Solutions</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-5">
+            {PRACTICE_AREAS.map((p, i) => (
+              <div key={p.slug} data-reveal data-reveal-delay={String((i % 3) * 80)}>
+                <PracticeAreaCard slug={p.slug} title={p.title} />
+              </div>
+            ))}
+          </div>
 
           <div className="text-center mt-10">
             <Link to="/practice-areas" className="btn-outline-gold inline-block">View All Practice Areas →</Link>
@@ -120,25 +133,3 @@ function Home() {
     </div>
   );
 }
-
-function PracticeAreasGrid() {
-  const [revealed, setRevealed] = useState<string | null>(null);
-  return (
-    <div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      onMouseLeave={() => setRevealed(null)}
-    >
-      {PRACTICE_AREAS.map((p) => (
-        <PracticeAreaCard
-          key={p.slug}
-          slug={p.slug}
-          title={p.title}
-          short={p.short}
-          isRevealed={revealed === p.slug}
-          onReveal={setRevealed}
-        />
-      ))}
-    </div>
-  );
-}
-

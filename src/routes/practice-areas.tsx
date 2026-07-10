@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { PRACTICE_AREAS } from "@/lib/site-data";
 import { PRACTICE_ICONS } from "@/lib/practice-icons";
-import { useRevealSections } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/practice-areas")({
   head: () => ({
@@ -21,21 +20,65 @@ export const Route = createFileRoute("/practice-areas")({
 });
 
 function PracticeAreas() {
-  const rootRef = useRevealSections<HTMLDivElement>();
   return (
-    <div ref={rootRef}>
+    <div>
       <PageHeader eyebrow="Practice Areas" title="Our Expertise" subtitle="Comprehensive legal solutions across nine specialized practice areas." />
-      <section className="py-16 md:py-24 px-6 bg-brand-offwhite">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRACTICE_AREAS.map((p) => {
+
+      <section className="bg-cream-veil py-16 md:py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          {PRACTICE_AREAS.map((p, idx) => {
             const Icon = PRACTICE_ICONS[p.slug];
+            const imgSrc = `https://picsum.photos/seed/${p.slug}-editorial/900/700`;
+            const isEven = idx % 2 === 0;
             return (
-              <article id={p.slug} key={p.slug} className="scroll-mt-28 bg-white p-7 md:p-8 border border-neutral-200 card-lift">
-                {Icon && <Icon size={28} strokeWidth={1.5} className="text-brand-gold mb-4" aria-hidden="true" />}
-                <h2 className="font-display text-2xl font-semibold text-brand-green mb-3">{p.title}</h2>
-                <p className="sr-only">{p.title} lawyer Mombasa Kenya — P&amp;A Advocates LLP.</p>
-                <p className="text-sm text-brand-dark-text/70 leading-relaxed mb-6">{p.long}</p>
-                <Link to="/contact" className="text-brand-gold text-xs tracking-[0.2em] uppercase font-semibold">Learn More →</Link>
+              <article
+                id={p.slug}
+                key={p.slug}
+                className="scroll-mt-28 py-14 md:py-20 border-b border-brand-gold/25 last:border-b-0"
+              >
+                <div
+                  className={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center ${
+                    isEven ? "" : "md:[&>*:first-child]:order-2"
+                  }`}
+                >
+                  <div
+                    data-reveal
+                    className="md:col-span-6 relative aspect-[5/4] overflow-hidden rounded-sm"
+                  >
+                    <img
+                      src={imgSrc}
+                      alt={`${p.title} — P&A Advocates LLP, Mombasa`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-brand-green/40 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4 bg-brand-green/90 backdrop-blur-sm px-3 py-1 text-[10px] tracking-[0.3em] uppercase text-brand-gold">
+                      0{idx + 1}
+                    </div>
+                  </div>
+
+                  <div data-reveal data-reveal-delay="120" className="md:col-span-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      {Icon && <Icon size={22} strokeWidth={1.5} className="text-brand-gold" aria-hidden />}
+                      <p className="text-brand-gold text-[10px] tracking-[0.35em] uppercase">Practice Area</p>
+                    </div>
+                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-brand-green font-semibold leading-tight mb-5">
+                      {p.title}
+                    </h2>
+                    <p className="font-display text-brand-green/80 text-lg italic mb-4">
+                      {p.short}
+                    </p>
+                    <p className="text-brand-dark-text/85 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+                      {p.long}
+                    </p>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 text-brand-gold text-xs tracking-[0.25em] uppercase font-semibold border-b border-brand-gold pb-1 hover:text-brand-green hover:border-brand-green transition-colors"
+                    >
+                      Discuss Your Matter →
+                    </Link>
+                  </div>
+                </div>
               </article>
             );
           })}
