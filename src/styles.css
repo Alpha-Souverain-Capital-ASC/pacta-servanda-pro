@@ -44,17 +44,17 @@
   --brand-gold: #b8862b;
   --brand-gold-light: #d9b158;
   --brand-offwhite: #f4f0e6;
-  --brand-cream-text: #f0ead9;
-  --brand-dark-text: #2a2a24;
+  --brand-cream-text: #f4efdd;
+  --brand-dark-text: #1c1c17;
 
   --background: #ffffff;
-  --foreground: #2a2a24;
+  --foreground: #1c1c17;
   --primary: #1c4032;
-  --primary-foreground: #f0ead9;
+  --primary-foreground: #f4efdd;
   --secondary: #f4f0e6;
   --secondary-foreground: #1c4032;
   --muted: #f4f0e6;
-  --muted-foreground: #5b6b62;
+  --muted-foreground: #3f4c44;
   --accent: #b8862b;
   --accent-foreground: #ffffff;
   --card: #ffffff;
@@ -75,10 +75,32 @@
     background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
+  p, li, dd, dt, span, a, label, small, figcaption { font-weight: 500; }
+  strong, b { font-weight: 700; }
   img, video { max-width: 100%; height: auto; }
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
 }
+
+/* Legibility bump — tighten translucent text used over dark green
+   backdrops and photography so Montserrat body copy reads clearly. */
+[class*="text-white/60"] { color: rgba(255,255,255,0.85) !important; }
+[class*="text-white/70"] { color: rgba(255,255,255,0.9) !important; }
+[class*="text-white/80"] { color: rgba(255,255,255,0.94) !important; }
+[class*="text-white/85"] { color: rgba(255,255,255,0.96) !important; }
+[class*="text-white/90"] { color: #ffffff !important; }
+[class*="text-brand-cream-text/70"] { color: rgba(244,239,221,0.92) !important; }
+[class*="text-brand-cream-text/80"],
+[class*="text-brand-cream-text/85"] { color: rgba(244,239,221,0.97) !important; }
+[class*="text-brand-dark-text/70"] { color: rgba(28,28,23,0.88) !important; }
+[class*="text-brand-dark-text/80"],
+[class*="text-brand-dark-text/85"] { color: rgba(28,28,23,0.95) !important; }
 
 /* Site-wide marbled gold + green wash — fixed for parallax on scroll.
    Sits behind all page content; page-bg-fixed pages layer their own image on top via ::before. */
@@ -96,7 +118,7 @@
 /* Cream-tinted sections — translucent enough to show marble grain,
    opaque enough to keep body text legible. */
 .bg-brand-offwhite {
-  background-color: rgba(244, 240, 230, 0.55);
+  background-color: rgba(244, 240, 230, 0.78);
 }
 
 /* Full-page fixed image backgrounds — image visible behind all sections */
@@ -117,7 +139,7 @@
 
 /* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
 .bg-cream-veil {
-  background-color: rgba(244, 240, 230, 0.55);
+  background-color: rgba(244, 240, 230, 0.78);
 }
 
 
