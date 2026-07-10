@@ -118,7 +118,7 @@
 /* Cream-tinted sections — translucent enough to show marble grain,
    opaque enough to keep body text legible. */
 .bg-brand-offwhite {
-  background-color: rgba(244, 240, 230, 0.55);
+  background-color: rgba(244, 240, 230, 0.78);
 }
 
 /* Full-page fixed image backgrounds — image visible behind all sections */
@@ -139,7 +139,7 @@
 
 /* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
 .bg-cream-veil {
-  background-color: rgba(244, 240, 230, 0.55);
+  background-color: rgba(244, 240, 230, 0.78);
 }
 
 
