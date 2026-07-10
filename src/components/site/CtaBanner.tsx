@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { OrnamentDivider } from "./OrnamentDivider";
 
 export function CtaBanner({
   heading = "Ready to Discuss Legal Matters?",
@@ -13,6 +14,7 @@ export function CtaBanner({
 }) {
   return (
     <section className="bg-brand-green py-16 md:py-24 px-6 text-center">
+      <OrnamentDivider className="mb-8" width={200} />
       <h2 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
         {heading}
       </h2>
