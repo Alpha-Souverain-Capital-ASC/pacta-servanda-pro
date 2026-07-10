@@ -143,10 +143,30 @@
 }
 
 
-/* 2px gold divider between adjacent sections site-wide */
+/* Section dividers site-wide — replace flat 2px gold rule with a soft
+   tapered gradient so seams read as an accent, not a hard line. */
 main > section + section,
 main > div > section + section {
-  border-top: 2px solid var(--brand-gold);
+  position: relative;
+  border-top: none;
+}
+main > section + section::before,
+main > div > section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(184, 134, 43, 0.55) 25%,
+    rgba(184, 134, 43, 0.9) 50%,
+    rgba(184, 134, 43, 0.55) 75%,
+    transparent
+  );
+  pointer-events: none;
 }
 
 /* Radial glow behind hero */
