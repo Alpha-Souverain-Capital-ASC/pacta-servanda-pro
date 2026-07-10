@@ -1,10 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { BrandLogo } from "./BrandLogo";
+import { OrnamentDivider } from "./OrnamentDivider";
 
 export function Footer() {
   return (
     <footer className="bg-brand-green text-white relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
+      <div className="pt-6 flex justify-center">
+        <OrnamentDivider width={260} />
+      </div>
       <div className="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
           <BrandLogo className="h-24 w-auto text-brand-cream-text mb-4" />
