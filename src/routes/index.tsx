@@ -79,7 +79,7 @@ function Home() {
       {/* ABOUT US */}
       <section className="bg-brand-offwhite py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <img data-reveal src={aboutImage.url} alt="Gavel and legal documents" className="aspect-[4/5] w-full object-cover" loading="lazy" />
+          <img data-reveal src={aboutImage.url} alt="Gavel and legal documents" width={800} height={1000} className="aspect-[4/5] w-full max-w-sm md:max-w-md mx-auto object-cover rounded-sm" loading="lazy" />
           <div>
             <p data-reveal className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">About Us</p>
             <h2 data-reveal data-reveal-delay="80" className="font-display text-3xl sm:text-4xl md:text-5xl text-brand-green font-semibold mb-6">Built on trust, delivered with rigor.</h2>
@@ -120,7 +120,7 @@ function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-5">
             {PRACTICE_AREAS.map((p, i) => (
               <div key={p.slug} data-reveal data-reveal-delay={String((i % 3) * 80)}>
-                <PracticeAreaCard slug={p.slug} title={p.title} />
+                <PracticeAreaCard slug={p.slug} title={p.title} image={p.image} />
               </div>
             ))}
           </div>
