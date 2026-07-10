@@ -117,7 +117,7 @@
 
 /* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
 .bg-cream-veil {
-  background-color: rgba(244, 240, 230, 0.28);
+  background-color: rgba(244, 240, 230, 0.55);
 }
 
 
