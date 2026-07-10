@@ -120,7 +120,7 @@ function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-5">
             {PRACTICE_AREAS.map((p, i) => (
               <div key={p.slug} data-reveal data-reveal-delay={String((i % 3) * 80)}>
-                <PracticeAreaCard slug={p.slug} title={p.title} />
+                <PracticeAreaCard slug={p.slug} title={p.title} image={p.image} />
               </div>
             ))}
           </div>
