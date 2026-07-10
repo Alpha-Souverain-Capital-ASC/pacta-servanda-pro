@@ -81,7 +81,7 @@ function Home() {
           <p
             data-reveal
             data-reveal-delay="120"
-            className="text-white/90 mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]"
+            className="text-brand-gold mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]"
           >
             P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
           </p>

@@ -52,14 +52,14 @@ function About() {
       </section>
 
       <section className="py-16 md:py-24 px-6 bg-brand-green">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          <div className="bg-white/5 p-8 md:p-10 border-t-2 border-brand-gold card-lift">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 justify-items-center items-stretch">
+          <div className="bg-white/5 p-8 md:p-10 border-t-2 border-brand-gold card-lift w-full max-w-2xl h-full">
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Vision</p>
             <p className="text-brand-cream-text font-display text-xl sm:text-2xl leading-snug">
               To be a leading legal service provider in Kenya and the wider East African region, known for our unwavering commitment to justice, integrity, and legal innovation.
             </p>
           </div>
-          <div className="bg-white/5 p-8 md:p-10 border-t-2 border-brand-gold card-lift">
+          <div className="bg-white/5 p-8 md:p-10 border-t-2 border-brand-gold card-lift w-full max-w-2xl h-full">
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Mission</p>
             <p className="text-brand-cream-text font-display text-xl sm:text-2xl leading-snug">
               To provide exceptional legal services anchored in professionalism, responsiveness, and results — while building long-term partnerships based on trust and respect.
