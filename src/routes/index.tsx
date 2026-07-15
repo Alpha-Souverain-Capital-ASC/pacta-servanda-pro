@@ -83,7 +83,7 @@ function Home() {
             data-reveal-delay="120"
             className="text-brand-gold mt-5 sm:mt-6 text-sm sm:text-base md:text-lg max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]"
           >
-            P&amp;A Advocates LLP — Strategic legal counsel across Kenya.
+            P&amp;A Advocates LLP — Strategic legal counsel across Africa.
           </p>
           <div
             data-reveal
@@ -92,6 +92,24 @@ function Home() {
           >
             <Link to="/contact" className="btn-gold text-center min-h-11">Book a Consultation</Link>
             <Link to="/practice-areas" className="btn-outline-white text-center min-h-11">Explore Practice Areas</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PRACTICE AREAS QUICK-LIST */}
+      <section className="bg-brand-offwhite py-10 md:py-12 px-6 border-b border-brand-gold/25">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-brand-gold text-[10px] tracking-[0.35em] uppercase mb-4">Our Practice Areas</p>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {PRACTICE_AREAS.map((p) => (
+              <a
+                key={p.slug}
+                href={`/practice-areas#${p.slug}`}
+                className="text-[11px] tracking-[0.15em] uppercase border border-brand-gold/50 text-brand-green px-3 py-2 bg-white hover:bg-brand-gold hover:text-white transition-colors"
+              >
+                {p.title}
+              </a>
+            ))}
           </div>
         </div>
       </section>

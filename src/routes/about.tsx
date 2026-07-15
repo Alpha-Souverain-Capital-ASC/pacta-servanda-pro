@@ -70,15 +70,17 @@ function About() {
 
       <section className="py-16 md:py-24 px-6 bg-cream-veil">
         <div className="max-w-6xl mx-auto">
-          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-3">Core Values</p>
-          <h2 className="font-display text-3xl sm:text-4xl text-brand-green text-center font-semibold mb-12 md:mb-14">What We Stand For</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {VALUES.map((v) => (
-              <div key={v.name} className="bg-white p-7 md:p-8 border-l-4 border-brand-gold card-lift">
-                <h3 className="font-display text-2xl text-brand-green mb-2">{v.name}</h3>
-                <p className="text-sm text-brand-dark-text/70 leading-relaxed">{v.desc}</p>
-              </div>
-            ))}
+          <div className="bg-brand-green border-2 border-brand-gold p-8 md:p-14 lg:p-16 shadow-xl">
+            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase text-center mb-3">Core Values</p>
+            <h2 className="font-display text-3xl sm:text-4xl text-brand-cream-text text-center font-semibold mb-12 md:mb-14">What We Stand For</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {VALUES.map((v) => (
+                <div key={v.name} className="bg-white/5 p-7 md:p-8 border-l-4 border-brand-gold card-lift">
+                  <h3 className="font-display text-2xl text-brand-cream-text mb-2">{v.name}</h3>
+                  <p className="text-sm text-brand-cream-text/85 leading-relaxed">{v.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
