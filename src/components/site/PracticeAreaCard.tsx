@@ -17,14 +17,15 @@ export function PracticeAreaCard({
       to="/practice-areas"
       hash={slug}
       aria-label={`${title} — P&A Advocates LLP, Mombasa Kenya`}
-      className="group relative block overflow-hidden rounded-xl aspect-[5/4] card-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+      className="group gold-frame relative block overflow-hidden rounded-xl aspect-[5/4] card-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
     >
       <img
         src={imgSrc}
         alt={alt}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="ken-burns absolute inset-0 h-full w-full object-cover"
       />
+
 
       {/* Base scrim — always visible so title is legible */}
       <div
