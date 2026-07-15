@@ -152,7 +152,9 @@ function RootComponent() {
 
         <Navbar />
         <main className={`flex-1 ${isHome ? "" : "pt-[4.5rem] sm:pt-[5rem]"}`}>
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <Footer />
       </div>
