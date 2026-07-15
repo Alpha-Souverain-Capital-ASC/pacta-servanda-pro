@@ -106,7 +106,7 @@ Every stage above is a point where a buyer acting alone can lose everything. Eng
       "employment lawyer Mombasa",
       "labour law Kenya",
     ],
-    coverImage: "/__l5e/assets-v1/313d6237-cca1-46ab-8410-54f20f18ca1d/insight-terminating-employee.jpg",
+    coverImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80",
     body: `Dismissing an employee is one of the most legally exposed decisions an employer makes. Get it wrong, and the Employment and Labour Relations Court can order compensation of up to twelve months' gross salary — or reinstatement. The good news is that the law is clear about what "getting it right" requires.
 
 ## You need a fair reason AND a fair procedure
