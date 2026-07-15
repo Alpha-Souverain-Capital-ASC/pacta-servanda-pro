@@ -19,6 +19,7 @@ export interface InsightArticle {
   readingTime: string;
   excerpt: string;         // used on list cards
   metaDescription: string; // used in <meta name="description"> for SEO
+  keywords: string[];      // Kenyan legal search terms for SEO/AEO
   coverImage: string;      // replace placeholder with real asset
   body: string;            // Markdown
 }
