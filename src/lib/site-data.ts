@@ -79,14 +79,32 @@ export const TEAM = [
   {
     name: "Perry T. Ayiera",
     title: "Partner",
-    bio: "A seasoned advocate with deep experience in commercial litigation and strategic legal counsel.",
-    tags: ["Litigation", "Strategy"],
+    bio: "A seasoned advocate specialising in dispute resolution and civil litigation, with a strong track record before the Kenyan courts.",
+    tags: ["Dispute Resolution", "Civil Litigation"],
   },
   {
     name: "Jeremy O. Ateng",
     title: "Partner",
     bio: "Focused on commercial law and dispute resolution, advising businesses across East Africa.",
     tags: ["Commercial Law", "Dispute Resolution"],
+  },
+  {
+    name: "Alex Marima",
+    title: "Senior Associate",
+    bio: "Handles complex criminal and civil litigation matters with a strong courtroom presence and diligent case preparation.",
+    tags: ["Criminal Litigation", "Civil Litigation"],
+  },
+  {
+    name: "Phillip Nyoro",
+    title: "Senior Associate",
+    bio: "Advises clients on conveyancing, commercial litigation, and family and succession matters with a client-first approach.",
+    tags: ["Conveyancing", "Commercial Litigation", "Family & Succession"],
+  },
+  {
+    name: "Daniel Munga",
+    title: "Associate",
+    bio: "Supports clients on commercial litigation, conveyancing, and commercial transactions with a keen eye for detail.",
+    tags: ["Commercial Litigation", "Conveyancing", "Commercial Transactions"],
   },
   {
     name: "Hassan Said Chaki",
