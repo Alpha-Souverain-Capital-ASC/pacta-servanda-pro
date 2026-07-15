@@ -39,12 +39,12 @@
 
 :root {
   --radius: 0;
-  --brand-green: #1c4032;
-  --brand-green-mid: #26543f;
-  --brand-gold: #c49030;
-  --brand-gold-light: #e2b866;
-  --brand-offwhite: #f4f0e6;
-  --brand-cream-text: #f4efdd;
+  --brand-green: #044422;
+  --brand-green-mid: #3B714A;
+  --brand-gold: #C79D31;
+  --brand-gold-light: #CFAA3C;
+  --brand-offwhite: #F8F8F8;
+  --brand-cream-text: #F8F8F8;
   --brand-dark-text: #1c1c17;
 
   --background: #ffffff;
