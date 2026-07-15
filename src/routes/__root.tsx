@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import { useGlobalReveal } from "../hooks/use-reveal";
+import { PageTransition } from "../components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
