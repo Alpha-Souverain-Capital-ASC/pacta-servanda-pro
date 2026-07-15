@@ -7,6 +7,7 @@ import { TeamAvatar } from "@/components/site/TeamAvatar";
 import { PracticeAreaCard } from "@/components/site/PracticeAreaCard";
 import aboutImage from "@/assets/about-law.jpg.asset.json";
 import { useRevealSections } from "@/hooks/use-reveal";
+import { HeroHeadline } from "@/components/site/HeroHeadline";
 
 export const Route = createFileRoute("/")({
   head: () => ({
