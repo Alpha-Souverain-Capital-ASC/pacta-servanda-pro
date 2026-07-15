@@ -38,16 +38,6 @@ export function BrandLogo({
           A
         </text>
 
-        {/* Thin gold divider line */}
-        <line
-          x1="160"
-          y1="14"
-          x2="160"
-          y2="170"
-          stroke="var(--brand-gold-light)"
-          strokeWidth="1.4"
-        />
-
         {/* Small gold ampersand centered */}
         <text
           x="160"
