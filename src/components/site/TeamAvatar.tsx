@@ -30,8 +30,8 @@ export function TeamAvatar({
       style={{
         width: size,
         height: size,
-        backgroundColor: "#1c4032",
-        color: "#caa64a",
+        backgroundColor: "#044422",
+        color: "#C79D31",
         fontFamily: "var(--font-display)",
         fontSize: size * 0.4,
         fontWeight: 600,

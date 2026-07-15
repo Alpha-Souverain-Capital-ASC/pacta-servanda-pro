@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/pa-advocates-logo.jpg.asset.json";
+import logoAsset from "@/assets/logo-gold.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -48,15 +48,11 @@ export function Navbar() {
           className="shrink-0 flex items-center gap-3"
           aria-label="P&A Advocates LLP — Home"
         >
-          <span className="inline-flex items-center justify-center h-11 w-11 sm:h-13 sm:w-13 rounded-full bg-brand-offwhite ring-1 ring-brand-gold/60 shadow-sm overflow-hidden">
-            <img
-              src={logoAsset.url}
-              alt="P&A Advocates LLP"
-              className="h-full w-full object-contain"
-              width={56}
-              height={56}
-            />
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="P&A Advocates LLP"
+            className="h-11 sm:h-12 w-auto object-contain"
+          />
           <span className="sr-only">P&amp;A Advocates LLP</span>
         </Link>
 

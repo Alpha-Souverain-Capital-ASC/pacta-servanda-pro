@@ -39,33 +39,33 @@
 
 :root {
   --radius: 0;
-  --brand-green: #1c4032;
-  --brand-green-mid: #26543f;
-  --brand-gold: #c49030;
-  --brand-gold-light: #e2b866;
-  --brand-offwhite: #f4f0e6;
-  --brand-cream-text: #f4efdd;
+  --brand-green: #044422;
+  --brand-green-mid: #3B714A;
+  --brand-gold: #C79D31;
+  --brand-gold-light: #CFAA3C;
+  --brand-offwhite: #F8F8F8;
+  --brand-cream-text: #F8F8F8;
   --brand-dark-text: #1c1c17;
 
   --background: #ffffff;
   --foreground: #1c1c17;
-  --primary: #1c4032;
-  --primary-foreground: #f4efdd;
-  --secondary: #f4f0e6;
-  --secondary-foreground: #1c4032;
-  --muted: #f4f0e6;
-  --muted-foreground: #3f4c44;
-  --accent: #c49030;
+  --primary: #044422;
+  --primary-foreground: #F8F8F8;
+  --secondary: #F8F8F8;
+  --secondary-foreground: #044422;
+  --muted: #F8F8F8;
+  --muted-foreground: #30603C;
+  --accent: #C79D31;
   --accent-foreground: #ffffff;
   --card: #ffffff;
-  --card-foreground: #1c4032;
+  --card-foreground: #044422;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #c49030;
+  --ring: #C79D31;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
   --popover: #ffffff;
-  --popover-foreground: #1c4032;
+  --popover-foreground: #044422;
 }
 
 @layer base {
