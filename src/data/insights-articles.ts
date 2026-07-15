@@ -266,7 +266,7 @@ Registering a company is straightforward; structuring it to protect the founders
       "lease registration Kenya",
       "commercial property lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/6a7497e6-e406-4c07-938f-d94466707a9e/insight-commercial-lease.jpg",
+    coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
     body: `A commercial lease is often a business's largest fixed commitment, yet many tenants sign one without reading it closely. The clauses that cause the most damage are rarely obvious on a first pass. Here is what to check before you commit.
 
 ## Is your tenancy "controlled"?
