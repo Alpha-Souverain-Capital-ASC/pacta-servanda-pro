@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { OrnamentDivider } from "./OrnamentDivider";
-import logoAsset from "@/assets/pa-advocates-logo.jpg.asset.json";
+import logoAsset from "@/assets/logo-gold.png.asset.json";
 
 export function Footer() {
   return (
