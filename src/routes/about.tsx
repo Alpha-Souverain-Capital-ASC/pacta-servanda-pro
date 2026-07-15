@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import tusksImage from "@/assets/tusks-bw.jpg.asset.json";
+import nairobiVideo from "@/assets/videos/nairobi.mp4.asset.json";
+import officeImage from "@/assets/about-office.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -28,18 +29,23 @@ const VALUES = [
 
 function About() {
   return (
-    <div className="page-bg-fixed" style={{ ["--page-bg-image" as string]: `url(${tusksImage.url})` }}>
-      <PageHeader eyebrow="About Us" title="A Legacy of Excellence" subtitle="Driven by integrity, professionalism, and a deep commitment to our clients." backgroundImage={tusksImage.url} />
+    <div className="page-bg-fixed">
+      <PageHeader
+        eyebrow="About Us"
+        title="A Legacy of Excellence"
+        subtitle="Driven by integrity, professionalism, and a deep commitment to our clients."
+        backgroundVideo={nairobiVideo.url}
+      />
 
       <section className="py-16 md:py-24 px-6 bg-cream-veil">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div
-            className="aspect-[4/5] w-full bg-brand-green"
-            style={{
-              backgroundImage: `linear-gradient(rgba(28,64,50,0.35), rgba(28,64,50,0.55)), url(${tusksImage.url})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+          <img
+            src={officeImage.url}
+            alt="Modern law office boardroom overlooking the Nairobi skyline"
+            loading="lazy"
+            width={1024}
+            height={1280}
+            className="aspect-[4/5] w-full object-cover shadow-xl"
           />
           <div>
             <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-3">Our Story</p>

@@ -69,16 +69,20 @@ function Contact() {
                 <p className="text-brand-green">paadvocatesllp@gmail.com</p>
               </div>
             </div>
-            <div className="mt-10 h-64 sm:h-72 w-full border border-neutral-200 overflow-hidden">
+            <div className="mt-10 relative h-64 sm:h-72 w-full border-2 border-brand-gold overflow-hidden shadow-lg">
               <iframe
                 src="https://maps.google.com/maps?q=Kaderbhoy%20Building%2C%20Nkurumah%20Road%2C%20Mombasa&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, filter: "saturate(0.75) contrast(0.95) sepia(0.15)" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="P&A Advocates LLP Office Location"
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(rgba(28,64,50,0.18), rgba(28,64,50,0.10))" }}
               />
             </div>
           </div>
