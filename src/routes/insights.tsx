@@ -3,18 +3,62 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { insights } from "@/data/insights-articles";
 
+const SITE_URL = "https://paadvocatesllp.com";
+
 export const Route = createFileRoute("/insights")({
-  head: () => ({
-    meta: [
-      { title: "News & Insights — P&A Advocates LLP" },
-      { name: "description", content: "Legal insights, guides, and commentary from the advocates of P&A Advocates LLP." },
-      { property: "og:title", content: "News & Insights — P&A Advocates LLP" },
-      { property: "og:description", content: "Legal insights, guides, and commentary from P&A Advocates LLP." },
-      { property: "og:url", content: "https://paadvocatesllp.com/insights" },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://paadvocatesllp.com/insights" }],
-  }),
+  head: () => {
+    const blog = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "P&A Advocates LLP — News & Insights",
+      url: `${SITE_URL}/insights`,
+      inLanguage: "en-KE",
+      publisher: {
+        "@type": "Organization",
+        name: "P&A Advocates LLP",
+        url: SITE_URL,
+      },
+      blogPost: insights.map((a) => ({
+        "@type": "BlogPosting",
+        headline: a.title,
+        description: a.metaDescription,
+        url: `${SITE_URL}/insights/${a.slug}`,
+        datePublished: a.date,
+        dateModified: a.date,
+        image: a.coverImage,
+        articleSection: a.category,
+        keywords: a.keywords.join(", "),
+        author: { "@type": "Person", name: a.author, url: `${SITE_URL}/team` },
+      })),
+    };
+    const itemList = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      numberOfItems: insights.length,
+      itemListElement: insights.map((a, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/insights/${a.slug}`,
+        name: a.title,
+      })),
+    };
+    return {
+      meta: [
+        { title: "News & Insights — Kenyan Legal Guides | P&A Advocates LLP" },
+        { name: "description", content: "Legal insights and guides from P&A Advocates LLP on Kenyan law — conveyancing, employment, succession, corporate and commercial practice." },
+        { property: "og:title", content: "News & Insights — P&A Advocates LLP" },
+        { property: "og:description", content: "Legal insights, guides, and commentary from P&A Advocates LLP." },
+        { property: "og:url", content: `${SITE_URL}/insights` },
+        { property: "og:type", content: "website" },
+      ],
+      links: [{ rel: "canonical", href: `${SITE_URL}/insights` }],
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(blog) },
+        { type: "application/ld+json", children: JSON.stringify(itemList) },
+      ],
+    };
+  },
   component: InsightsList,
 });
 
