@@ -24,6 +24,24 @@ function PracticeAreas() {
     <div>
       <PageHeader eyebrow="Practice Areas" title="Our Expertise" subtitle="Comprehensive legal solutions across nine specialized practice areas." />
 
+      {/* Quick jump-link index */}
+      <section className="bg-cream-veil py-8 md:py-10 px-6 border-b border-brand-gold/25">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-brand-gold text-[10px] tracking-[0.35em] uppercase mb-4">Jump To</p>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {PRACTICE_AREAS.map((p) => (
+              <a
+                key={p.slug}
+                href={`#${p.slug}`}
+                className="text-[11px] tracking-[0.15em] uppercase border border-brand-gold/50 text-brand-green px-3 py-2 bg-white hover:bg-brand-gold hover:text-white transition-colors"
+              >
+                {p.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-cream-veil py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {PRACTICE_AREAS.map((p, idx) => {
