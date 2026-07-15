@@ -13,7 +13,7 @@ export function Footer() {
           <img
             src={logoAsset.url}
             alt="P&A Advocates LLP"
-            className="h-16 md:h-20 w-auto object-contain mb-5"
+            className="h-24 md:h-28 w-auto object-contain mb-5"
           />
           <p className="text-sm text-brand-cream-text/85 leading-relaxed mb-6 max-w-xs">
             Trusted Legal Excellence. Personalised Legal Support.
