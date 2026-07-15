@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { BrandLogo } from "./BrandLogo";
 import { OrnamentDivider } from "./OrnamentDivider";
+import logoAsset from "@/assets/pa-advocates-logo.jpg.asset.json";
 
 export function Footer() {
   return (
@@ -10,7 +10,15 @@ export function Footer() {
       </div>
       <div className="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
-          <BrandLogo className="h-24 w-auto text-brand-cream-text mb-4" />
+          <span className="inline-flex items-center justify-center h-24 w-24 rounded-full bg-brand-offwhite ring-1 ring-brand-gold/60 shadow-md overflow-hidden mb-4">
+            <img
+              src={logoAsset.url}
+              alt="P&A Advocates LLP"
+              className="h-full w-full object-contain"
+              width={96}
+              height={96}
+            />
+          </span>
           <p className="text-sm text-brand-cream-text/85 leading-relaxed mb-6 max-w-xs">
             Trusted Legal Excellence. Personalised Legal Support.
           </p>
