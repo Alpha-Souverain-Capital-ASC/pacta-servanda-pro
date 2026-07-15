@@ -50,7 +50,7 @@ export const insights: InsightArticle[] = [
       "sale agreement Kenya",
       "coastal land Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/3c9a9e8b-55db-40e0-be7f-1f20f30b6cb3/insight-buying-land.jpg",
+    coverImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
     body: `Land is one of the most valuable — and most contested — assets in Kenya. Fraudulent titles, double sales, and disputed ownership are common enough that no purchase should proceed on trust alone. Conveyancing is the legal process of transferring property from seller to buyer, and done properly, it is what protects your money.
 
 ## Start with an official search
