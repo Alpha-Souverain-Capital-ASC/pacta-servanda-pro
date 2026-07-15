@@ -146,6 +146,10 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   useGlobalReveal();
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
   return (
     <QueryClientProvider client={queryClient}>
       <div className="site-marble-bg min-h-screen flex flex-col">
