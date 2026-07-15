@@ -72,7 +72,7 @@ function Home() {
   return (
     <div ref={rootRef}>
       {/* HERO */}
-      <section className="relative min-h-[calc(100vh-4.75rem)] flex flex-col items-center justify-center px-6 text-center overflow-hidden hero-glow">
+      <section className="relative min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center px-6 text-center overflow-hidden hero-glow">
         <HeroVideo />
         <div className="relative z-10 flex flex-col items-center w-full">
           <h1 className="font-display text-white text-[32px] sm:text-[42px] md:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">

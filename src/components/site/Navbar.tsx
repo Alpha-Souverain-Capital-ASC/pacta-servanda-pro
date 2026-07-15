@@ -41,7 +41,17 @@ export function Navbar() {
           : "bg-brand-green border-b border-brand-green-mid nav-scrolled"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
+      {/* Subtle dark scrim behind the transparent navbar so the gold logo and links read clearly */}
+      <div
+        className={`absolute inset-x-0 top-0 bottom-0 pointer-events-none z-0 transition-opacity duration-300 ${
+          transparent ? "opacity-100" : "opacity-0"
+        }`}
+        style={{
+          background: "linear-gradient(to bottom, rgba(4,68,34,0.55), rgba(4,68,34,0))",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-[4.5rem] sm:h-[5rem] flex items-center justify-between gap-3">
         <Link
           to="/"
           onClick={() => setOpen(false)}
@@ -51,7 +61,7 @@ export function Navbar() {
           <img
             src={logoAsset.url}
             alt="P&A Advocates LLP"
-            className="h-11 sm:h-12 w-auto object-contain"
+            className="h-14 sm:h-16 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]"
           />
           <span className="sr-only">P&amp;A Advocates LLP</span>
         </Link>

@@ -150,7 +150,7 @@ function RootComponent() {
       <div className="site-marble-bg min-h-screen flex flex-col">
 
         <Navbar />
-        <main className={`flex-1 ${isHome ? "" : "pt-[4.25rem] sm:pt-[4.75rem]"}`}>
+        <main className={`flex-1 ${isHome ? "" : "pt-[4.5rem] sm:pt-[5rem]"}`}>
           <Outlet />
         </main>
         <Footer />
