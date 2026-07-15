@@ -162,7 +162,7 @@ An employee who believes they were unfairly terminated can bring a claim in the 
       "will writing Mombasa",
       "succession lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/bdfd9ecc-fade-4875-bbd2-0cbfa798e813/insight-dying-without-will.jpg",
+    coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80",
     body: `When someone dies without a valid will, they die "intestate" — and the law, not their wishes, decides how their property is shared. For many families the result is delay, disputes, and outcomes the deceased never intended. Understanding the rules is the first step to avoiding that.
 
 ## Intestate versus testate
