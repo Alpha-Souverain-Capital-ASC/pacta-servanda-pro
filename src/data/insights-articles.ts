@@ -214,7 +214,7 @@ A properly drafted will lets you decide who inherits, appoint the people you tru
       "business permit Mombasa",
       "corporate lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/56604b7c-3d15-42f2-a762-920186d9a044/insight-registering-company.jpg",
+    coverImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
     body: `Registering a company in Kenya has never been faster — the process is largely online. But speed hides risk: the decisions founders make while registering, often without advice, are the ones that cause expensive problems years later. Here is what to get right from the start.
 
 ## Choose the right structure
