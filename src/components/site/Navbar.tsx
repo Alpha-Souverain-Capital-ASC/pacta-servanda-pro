@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoAsset from "@/assets/pa-advocates-logo.jpg.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -11,85 +12,12 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const PREFIX_FULL = "Perry & Ateng ";
-const PREFIX_SHORT = "P & A ";
-const MIDDLE = "Advocates";
-const SUFFIX_FULL = " LLP";
-const SUFFIX_SHORT = "";
-
-function useAnimatedPiece(target: string, speed: number = 22) {
-  const [text, setText] = useState(target);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const targetRef = useRef(target);
-  const currentRef = useRef(target);
-
-  useEffect(() => {
-    if (targetRef.current === target) return;
-    targetRef.current = target;
-
-    if (timerRef.current) clearTimeout(timerRef.current);
-
-    const from = currentRef.current;
-    const to = target;
-
-    let deleting = true;
-    let idx = from.length;
-
-    const tick = () => {
-      if (deleting) {
-        idx--;
-        const next = from.slice(0, idx);
-        currentRef.current = next;
-        setText(next);
-        if (idx > 0) {
-          timerRef.current = setTimeout(tick, speed);
-        } else {
-          deleting = false;
-          timerRef.current = setTimeout(tick, speed);
-        }
-      } else {
-        idx++;
-        const next = to.slice(0, idx);
-        currentRef.current = next;
-        setText(next);
-        if (idx < to.length) {
-          timerRef.current = setTimeout(tick, speed);
-        }
-      }
-    };
-
-    timerRef.current = setTimeout(tick, speed);
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [target]);
-
-  return text;
-}
-
-function renderWithGoldAmp(text: string) {
-  const parts = text.split("&");
-  return parts.flatMap((seg, i) =>
-    i < parts.length - 1
-      ? [<span key={`s${i}`}>{seg}</span>, <span key={`a${i}`} className="text-brand-gold">&amp;</span>]
-      : [<span key={`s${i}`}>{seg}</span>]
-  );
-}
-
-
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   const transparent = isHome && !scrolled;
-
-  const targetPrefix = scrolled ? PREFIX_SHORT : PREFIX_FULL;
-  const targetSuffix = scrolled ? SUFFIX_SHORT : SUFFIX_FULL;
-
-  const prefix = useAnimatedPiece(targetPrefix, 22);
-  const suffix = useAnimatedPiece(targetSuffix, 22);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -114,17 +42,22 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[4.25rem] sm:h-[4.75rem] flex items-center justify-between gap-3">
-        <Link to="/" onClick={() => setOpen(false)} className="shrink-0 flex items-center" aria-label="Perry & Ateng Advocates LLP">
-          {/* Mobile: short only */}
-          <span className="md:hidden font-display text-white text-lg font-semibold tracking-wide whitespace-nowrap">
-            P <span className="text-brand-gold">&amp;</span> A Advocates
+        <Link
+          to="/"
+          onClick={() => setOpen(false)}
+          className="shrink-0 flex items-center gap-3"
+          aria-label="P&A Advocates LLP — Home"
+        >
+          <span className="inline-flex items-center justify-center h-11 w-11 sm:h-13 sm:w-13 rounded-full bg-brand-offwhite ring-1 ring-brand-gold/60 shadow-sm overflow-hidden">
+            <img
+              src={logoAsset.url}
+              alt="P&A Advocates LLP"
+              className="h-full w-full object-contain"
+              width={56}
+              height={56}
+            />
           </span>
-          {/* Desktop: full ↔ short with typing animation */}
-          <span className="hidden md:inline-block font-display text-white text-xl lg:text-2xl font-semibold tracking-wide whitespace-nowrap">
-            <span>{renderWithGoldAmp(prefix)}</span>
-            <span>{MIDDLE}</span>
-            <span>{suffix}</span>
-          </span>
+          <span className="sr-only">P&amp;A Advocates LLP</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-4 lg:gap-6">
