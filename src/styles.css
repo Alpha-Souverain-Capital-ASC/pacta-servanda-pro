@@ -102,44 +102,27 @@
 [class*="text-brand-dark-text/80"],
 [class*="text-brand-dark-text/85"] { color: rgba(28,28,23,0.95) !important; }
 
-/* Site-wide marbled gold + green wash — fixed for parallax on scroll.
-   Sits behind all page content; page-bg-fixed pages layer their own image on top via ::before. */
-.site-marble-bg::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image: var(--marble-bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* Solid warm cream site background — calm, minimal, on-brand */
+.site-marble-bg {
+  background-color: var(--brand-offwhite);
 }
 
-/* Cream-tinted sections — translucent enough to show marble grain,
-   opaque enough to keep body text legible. */
+/* Cream-tinted sections — now fully opaque, no texture bleed. */
 .bg-brand-offwhite {
-  background-color: rgba(244, 240, 230, 0.78);
+  background-color: var(--brand-offwhite);
 }
 
-/* Full-page fixed image backgrounds — image visible behind all sections */
+/* Legacy page-bg-fixed / cream-veil — flattened to solid cream so no
+   photographic background peeks through behind copy. */
 .page-bg-fixed {
   position: relative;
   isolation: isolate;
+  background-color: var(--brand-offwhite);
 }
-.page-bg-fixed::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--page-bg-image);
-}
+.page-bg-fixed::before { content: none; }
 
-/* Translucent cream veil — used over page-bg-fixed so the fixed image shows through */
 .bg-cream-veil {
-  background-color: rgba(244, 240, 230, 0.78);
+  background-color: var(--brand-offwhite);
 }
 
 
