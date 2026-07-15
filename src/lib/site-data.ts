@@ -77,28 +77,28 @@ export const PRACTICE_AREAS = [
 
 export const TEAM = [
   {
+    name: "Jeremy O. Ateng",
+    title: "Managing Partner",
+    bio: "Leads the firm's strategic direction and heads its commercial law and dispute resolution practice, advising businesses across Kenya and the wider East African market.",
+    tags: ["Commercial Law", "Dispute Resolution"],
+  },
+  {
     name: "Perry T. Ayiera",
     title: "Partner",
     bio: "A seasoned advocate specialising in dispute resolution and civil litigation, with a strong track record before the Kenyan courts.",
     tags: ["Dispute Resolution", "Civil Litigation"],
   },
   {
-    name: "Jeremy O. Ateng",
-    title: "Partner",
-    bio: "Focused on commercial law and dispute resolution, advising businesses across East Africa.",
-    tags: ["Commercial Law", "Dispute Resolution"],
+    name: "Phillip Nyoro",
+    title: "Head of Civil Litigation & Conveyancing",
+    bio: "Leads the firm's civil litigation and conveyancing practice, guiding clients through property transactions and complex civil disputes with a client-first approach.",
+    tags: ["Civil Litigation", "Conveyancing"],
   },
   {
     name: "Alex Marima",
-    title: "Senior Associate",
-    bio: "Handles complex criminal and civil litigation matters with a strong courtroom presence and diligent case preparation.",
-    tags: ["Criminal Litigation", "Civil Litigation"],
-  },
-  {
-    name: "Phillip Nyoro",
-    title: "Senior Associate",
-    bio: "Advises clients on conveyancing, commercial litigation, and family and succession matters with a client-first approach.",
-    tags: ["Conveyancing", "Commercial Litigation", "Family & Succession"],
+    title: "Head of Criminal Litigation, Family Law & Succession",
+    bio: "Heads the firm's criminal litigation and family and succession practice, combining strong courtroom advocacy with sensitive handling of family and estate matters.",
+    tags: ["Criminal Litigation", "Family Law & Succession"],
   },
   {
     name: "Daniel Munga",

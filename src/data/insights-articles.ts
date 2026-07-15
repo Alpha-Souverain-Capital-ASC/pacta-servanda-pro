@@ -50,7 +50,7 @@ export const insights: InsightArticle[] = [
       "sale agreement Kenya",
       "coastal land Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/3c9a9e8b-55db-40e0-be7f-1f20f30b6cb3/insight-buying-land.jpg",
+    coverImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
     body: `Land is one of the most valuable — and most contested — assets in Kenya. Fraudulent titles, double sales, and disputed ownership are common enough that no purchase should proceed on trust alone. Conveyancing is the legal process of transferring property from seller to buyer, and done properly, it is what protects your money.
 
 ## Start with an official search
@@ -106,7 +106,7 @@ Every stage above is a point where a buyer acting alone can lose everything. Eng
       "employment lawyer Mombasa",
       "labour law Kenya",
     ],
-    coverImage: "/__l5e/assets-v1/313d6237-cca1-46ab-8410-54f20f18ca1d/insight-terminating-employee.jpg",
+    coverImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80",
     body: `Dismissing an employee is one of the most legally exposed decisions an employer makes. Get it wrong, and the Employment and Labour Relations Court can order compensation of up to twelve months' gross salary — or reinstatement. The good news is that the law is clear about what "getting it right" requires.
 
 ## You need a fair reason AND a fair procedure
@@ -162,7 +162,7 @@ An employee who believes they were unfairly terminated can bring a claim in the 
       "will writing Mombasa",
       "succession lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/bdfd9ecc-fade-4875-bbd2-0cbfa798e813/insight-dying-without-will.jpg",
+    coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80",
     body: `When someone dies without a valid will, they die "intestate" — and the law, not their wishes, decides how their property is shared. For many families the result is delay, disputes, and outcomes the deceased never intended. Understanding the rules is the first step to avoiding that.
 
 ## Intestate versus testate
@@ -214,7 +214,7 @@ A properly drafted will lets you decide who inherits, appoint the people you tru
       "business permit Mombasa",
       "corporate lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/56604b7c-3d15-42f2-a762-920186d9a044/insight-registering-company.jpg",
+    coverImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
     body: `Registering a company in Kenya has never been faster — the process is largely online. But speed hides risk: the decisions founders make while registering, often without advice, are the ones that cause expensive problems years later. Here is what to get right from the start.
 
 ## Choose the right structure
@@ -266,7 +266,7 @@ Registering a company is straightforward; structuring it to protect the founders
       "lease registration Kenya",
       "commercial property lawyer Mombasa",
     ],
-    coverImage: "/__l5e/assets-v1/6a7497e6-e406-4c07-938f-d94466707a9e/insight-commercial-lease.jpg",
+    coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
     body: `A commercial lease is often a business's largest fixed commitment, yet many tenants sign one without reading it closely. The clauses that cause the most damage are rarely obvious on a first pass. Here is what to check before you commit.
 
 ## Is your tenancy "controlled"?
