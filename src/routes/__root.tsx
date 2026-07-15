@@ -147,10 +147,8 @@ function RootComponent() {
   useGlobalReveal();
   return (
     <QueryClientProvider client={queryClient}>
-      <div
-        className="site-marble-bg min-h-screen flex flex-col"
-        style={{ ["--marble-bg" as string]: `url(${marbleImage.url})` }}
-      >
+      <div className="site-marble-bg min-h-screen flex flex-col">
+
         <Navbar />
         <main className={`flex-1 ${isHome ? "" : "pt-[4.25rem] sm:pt-[4.75rem]"}`}>
           <Outlet />
