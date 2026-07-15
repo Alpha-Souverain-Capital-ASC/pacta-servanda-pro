@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import { useGlobalReveal } from "../hooks/use-reveal";
+import { PageTransition } from "../components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
@@ -151,7 +152,9 @@ function RootComponent() {
 
         <Navbar />
         <main className={`flex-1 ${isHome ? "" : "pt-[4.5rem] sm:pt-[5rem]"}`}>
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <Footer />
       </div>

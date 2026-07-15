@@ -7,6 +7,7 @@ import { TeamAvatar } from "@/components/site/TeamAvatar";
 import { PracticeAreaCard } from "@/components/site/PracticeAreaCard";
 import aboutImage from "@/assets/about-law.jpg.asset.json";
 import { useRevealSections } from "@/hooks/use-reveal";
+import { HeroHeadline } from "@/components/site/HeroHeadline";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,7 +77,17 @@ function Home() {
         <HeroVideo />
         <div className="relative z-10 flex flex-col items-center w-full">
           <h1 className="font-display text-white text-[32px] sm:text-[42px] md:text-6xl lg:text-7xl font-semibold leading-tight max-w-5xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
-            Trusted <span className="text-brand-gold">Legal</span> Excellence,<br />Unrivaled <span className="text-brand-gold">Personal</span> Support.
+            <HeroHeadline baseDelay={200} step={75}>
+              {"Trusted "}
+              <span className="text-brand-gold gold-shimmer">Legal</span>
+              {" Excellence,"}
+            </HeroHeadline>
+            <br />
+            <HeroHeadline baseDelay={800} step={75}>
+              {"Unrivaled "}
+              <span className="text-brand-gold gold-shimmer">Personal</span>
+              {" Support."}
+            </HeroHeadline>
           </h1>
           <p
             data-reveal
@@ -90,10 +101,11 @@ function Home() {
             data-reveal-delay="240"
             className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-stretch sm:items-center px-4 sm:px-0 max-w-xs sm:max-w-none mx-auto"
           >
-            <Link to="/contact" className="btn-gold text-center min-h-11">Book a Consultation</Link>
-            <Link to="/practice-areas" className="btn-outline-white text-center min-h-11">Explore Practice Areas</Link>
+            <Link to="/contact" className="btn-gold btn-magnetic text-center min-h-11">Book a Consultation</Link>
+            <Link to="/practice-areas" className="btn-outline-white btn-magnetic text-center min-h-11">Explore Practice Areas</Link>
           </div>
         </div>
+
       </section>
 
       {/* PRACTICE AREAS QUICK-LIST */}

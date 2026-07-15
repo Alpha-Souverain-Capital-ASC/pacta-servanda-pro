@@ -105,6 +105,17 @@ export function HeroVideo() {
         }}
       />
 
+      {/* Soft animated scroll cue — fades out as user scrolls */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-6 sm:bottom-8 flex justify-center pointer-events-none z-10 scroll-cue"
+        style={{ opacity: Math.max(0, 1 - parallax / 80) }}
+      >
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </div>
     </div>
   );
 }
+

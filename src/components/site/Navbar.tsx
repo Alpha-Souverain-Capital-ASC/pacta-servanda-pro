@@ -71,10 +71,10 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-[13px] lg:text-sm font-medium text-white/90 hover:text-brand-gold transition-colors relative py-2 whitespace-nowrap"
+              className="nav-link text-[13px] lg:text-sm font-medium text-white/90 hover:text-brand-gold transition-colors py-2 whitespace-nowrap"
               activeProps={{
                 className:
-                  "text-[13px] lg:text-sm font-medium text-white relative py-2 border-b-2 border-brand-gold whitespace-nowrap",
+                  "nav-link text-[13px] lg:text-sm font-medium text-white py-2 whitespace-nowrap",
               }}
               activeOptions={{ exact: l.to === "/" }}
             >
@@ -85,10 +85,11 @@ export function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex items-center justify-center px-3 lg:px-4 py-2 border border-brand-gold text-brand-gold text-[11px] lg:text-[12px] font-medium uppercase tracking-[0.1em] whitespace-nowrap transition-colors hover:bg-brand-gold hover:text-white font-sans"
+          className="btn-magnetic hidden md:inline-flex items-center justify-center px-3 lg:px-4 py-2 border border-brand-gold text-brand-gold text-[11px] lg:text-[12px] font-medium uppercase tracking-[0.1em] whitespace-nowrap hover:bg-brand-gold hover:text-white font-sans rounded-sm"
         >
           Book a Consultation
         </Link>
+
 
         <button
           type="button"
