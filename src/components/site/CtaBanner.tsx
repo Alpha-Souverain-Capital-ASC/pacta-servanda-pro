@@ -23,7 +23,7 @@ export function CtaBanner({
       </p>
       <Link
         to="/contact"
-        className={`${variant === "solid" ? "btn-gold" : "btn-outline-gold"} inline-block w-full sm:w-auto max-w-xs`}
+        className={`${variant === "solid" ? "btn-gold" : "btn-outline-gold"} btn-magnetic inline-block w-full sm:w-auto max-w-xs`}
       >
         {buttonLabel}
       </Link>
