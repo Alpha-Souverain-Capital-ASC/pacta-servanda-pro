@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { OrnamentDivider } from "./OrnamentDivider";
-import logoAsset from "@/assets/logo-gold.png.asset.json";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   return (
@@ -10,11 +10,7 @@ export function Footer() {
       </div>
       <div className="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
         <div className="flex flex-col items-center md:items-start">
-          <img
-            src={logoAsset.url}
-            alt="P&A Advocates LLP"
-            className="h-24 md:h-28 w-auto object-contain mb-5"
-          />
+          <BrandLogo className="h-24 md:h-28 w-auto text-white mb-5" showSubline />
           <p className="text-sm text-brand-cream-text/85 leading-relaxed mb-6 max-w-xs">
             Trusted Legal Excellence. Personalised Legal Support.
           </p>
@@ -26,10 +22,26 @@ export function Footer() {
         <div>
           <h4 className="text-xs uppercase tracking-widest text-brand-gold mb-4">Legal</h4>
           <ul className="space-y-2 text-sm text-white/85">
-            <li><Link to="/" className="hover:text-brand-gold">Privacy Policy</Link></li>
-            <li><Link to="/" className="hover:text-brand-gold">Terms of Service</Link></li>
-            <li><Link to="/" className="hover:text-brand-gold">Legal Notice</Link></li>
-            <li><Link to="/" className="hover:text-brand-gold">Sitemap</Link></li>
+            <li>
+              <Link to="/" className="hover:text-brand-gold">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="hover:text-brand-gold">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="hover:text-brand-gold">
+                Legal Notice
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="hover:text-brand-gold">
+                Sitemap
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
