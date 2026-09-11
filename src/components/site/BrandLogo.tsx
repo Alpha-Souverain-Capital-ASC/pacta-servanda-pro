@@ -1,7 +1,8 @@
-// Vector reproduction of the P&A Advocates LLP wordmark from the brand book.
-// Gold-on-transparent variant, sized for the dark green footer.
-// currentColor drives the "P" and "A" letterforms so the mark can be recolored
-// with a Tailwind text-* class without editing the SVG.
+import logoWhiteGold from "@/assets/branding/pa-advocates-logo-white-gold.png?inline";
+
+// The logo artwork is taken from the approved P&A brand identity PDF.
+// Keeping it as a bundled asset prevents the old Lovable asset proxy from
+// changing or failing when the site is run locally or deployed elsewhere.
 export function BrandLogo({
   className,
   showSubline = false,
@@ -10,76 +11,21 @@ export function BrandLogo({
   showSubline?: boolean;
 }) {
   return (
-    <svg
-      viewBox="0 0 320 180"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="P&A Advocates LLP"
-      className={className}
-    >
-      <g fontFamily='"Cormorant Garamond", serif' fontWeight={600}>
-        {/* Big P and A in currentColor (recolored via className) */}
-        <text
-          x="70"
-          y="120"
-          fontSize="140"
-          textAnchor="middle"
-          fill="currentColor"
-        >
-          P
-        </text>
-        <text
-          x="250"
-          y="120"
-          fontSize="140"
-          textAnchor="middle"
-          fill="currentColor"
-        >
-          A
-        </text>
-
-        {/* Small gold ampersand centered */}
-        <text
-          x="160"
-          y="72"
-          fontSize="34"
-          textAnchor="middle"
-          fill="var(--brand-gold-light)"
-          fontStyle="italic"
-        >
-          &amp;
-        </text>
-
-        {/* Horizontal wordmark: ADVOCATES / LLP */}
-        <g
-          fontFamily='"Montserrat", sans-serif'
-          fontWeight={600}
-          fill="currentColor"
-          textAnchor="middle"
-        >
-          <text x="160" y="112" fontSize="18" letterSpacing="4">
-            ADVOCATES
-          </text>
-          <text x="160" y="134" fontSize="16" letterSpacing="6">
-            LLP
-          </text>
-        </g>
-
-        {showSubline && (
-          <text
-            x="160"
-            y="168"
-            fontFamily='"Montserrat", sans-serif'
-            fontSize="10"
-            fontWeight={500}
-            textAnchor="middle"
-            fill="currentColor"
-            letterSpacing="2"
-          >
-            Commissioners for Oaths
-          </text>
-        )}
-      </g>
-    </svg>
+    <span className="inline-flex flex-col items-center shrink-0">
+      <img
+        src={logoWhiteGold}
+        alt="P&A Advocates LLP"
+        className={className}
+        draggable={false}
+        loading="eager"
+        decoding="sync"
+        fetchPriority="high"
+      />
+      {showSubline && (
+        <span className="mt-1 text-[10px] uppercase tracking-[0.18em] text-brand-gold">
+          Commissioners for Oaths
+        </span>
+      )}
+    </span>
   );
 }

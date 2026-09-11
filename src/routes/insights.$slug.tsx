@@ -23,7 +23,7 @@ const CATEGORY_TO_PRACTICE_SLUG: Record<string, string> = {
 function wordCount(md: string): number {
   return md
     .replace(/```[\s\S]*?```/g, " ")
-    .replace(/[#*_>`\-]/g, " ")
+    .replace(/[#*_>`-]/g, " ")
     .split(/\s+/)
     .filter(Boolean).length;
 }
@@ -32,9 +32,7 @@ function relatedArticles(current: InsightArticle): InsightArticle[] {
   const sameCategory = insights.filter(
     (a) => a.slug !== current.slug && a.category === current.category,
   );
-  const others = insights.filter(
-    (a) => a.slug !== current.slug && a.category !== current.category,
-  );
+  const others = insights.filter((a) => a.slug !== current.slug && a.category !== current.category);
   return [...sameCategory, ...others].slice(0, 3);
 }
 
@@ -142,7 +140,9 @@ function ArticleNotFound() {
     <section className="py-24 md:py-32 px-6 bg-brand-offwhite text-center">
       <h1 className="font-display text-3xl md:text-4xl text-brand-green mb-4">Article not found</h1>
       <p className="text-brand-dark-text/70 mb-8">This article doesn't exist or has been moved.</p>
-      <Link to="/insights" className="btn-outline-gold inline-block">← Back to Insights</Link>
+      <Link to="/insights" className="btn-outline-gold inline-block">
+        ← Back to Insights
+      </Link>
     </section>
   );
 }
@@ -158,9 +158,15 @@ function ArticleView() {
     <>
       <section className="bg-brand-green py-16 md:py-20 px-6">
         <div ref={heroRef} className="max-w-3xl mx-auto text-center">
-          <Link to="/insights" className="text-brand-gold text-xs tracking-[0.3em] uppercase">← All Insights</Link>
-          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mt-6 mb-3">{article.category}</p>
-          <h1 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">{article.title}</h1>
+          <Link to="/insights" className="text-brand-gold text-xs tracking-[0.3em] uppercase">
+            ← All Insights
+          </Link>
+          <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mt-6 mb-3">
+            {article.category}
+          </p>
+          <h1 className="font-display text-brand-cream-text text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+            {article.title}
+          </h1>
           <div className="mt-6 flex items-center justify-center gap-4 text-[12px] text-brand-cream-text/70 tracking-wide">
             <span>{article.author}</span>
             <span className="text-brand-gold">•</span>
@@ -177,7 +183,7 @@ function ArticleView() {
             <img
               src={article.coverImage}
               alt={article.title}
-              className="w-full aspect-[16/9] object-cover mb-10 md:mb-14 border border-neutral-200"
+              className="w-full aspect-[16/9] object-cover mb-10 md:mb-14 border border-brand-green/15"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";
               }}
@@ -190,7 +196,9 @@ function ArticleView() {
           {/* Contextual CTA + related practice area */}
           <div className="mt-12 md:mt-16 border-t border-brand-gold/30 pt-8 md:pt-10 grid gap-6 md:grid-cols-2">
             <div>
-              <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-2">Need Advice?</p>
+              <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-2">
+                Need Advice?
+              </p>
               <h3 className="font-display text-xl md:text-2xl text-brand-green font-semibold mb-3">
                 Speak to an advocate
               </h3>
@@ -206,7 +214,9 @@ function ArticleView() {
             </div>
             {practiceSlug && (
               <div>
-                <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-2">Related Practice Area</p>
+                <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-2">
+                  Related Practice Area
+                </p>
                 <h3 className="font-display text-xl md:text-2xl text-brand-green font-semibold mb-3">
                   {article.category}
                 </h3>
@@ -241,7 +251,9 @@ function ArticleView() {
       {related.length > 0 && (
         <section className="bg-cream-veil py-16 md:py-20 px-6 border-t border-brand-gold/25">
           <div className="max-w-6xl mx-auto">
-            <p className="text-brand-gold text-[10px] tracking-[0.35em] uppercase mb-6 text-center">Related Insights</p>
+            <p className="text-brand-gold text-[10px] tracking-[0.35em] uppercase mb-6 text-center">
+              Related Insights
+            </p>
             <h2 className="font-display text-2xl md:text-3xl text-brand-green font-semibold text-center mb-10">
               Continue reading
             </h2>
@@ -251,7 +263,7 @@ function ArticleView() {
                   key={a.slug}
                   to="/insights/$slug"
                   params={{ slug: a.slug }}
-                  className="bg-white border border-neutral-200 card-lift flex flex-col overflow-hidden group"
+                  className="bg-white border border-brand-green/15 card-lift flex flex-col overflow-hidden group"
                 >
                   <div className="aspect-[16/10] bg-brand-green/10 overflow-hidden relative">
                     <img
@@ -265,12 +277,18 @@ function ArticleView() {
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-3">{a.category}</p>
+                    <p className="text-brand-gold text-[10px] tracking-[0.3em] uppercase mb-3">
+                      {a.category}
+                    </p>
                     <h3 className="font-display text-lg md:text-xl font-semibold text-brand-green mb-3 leading-snug group-hover:text-brand-gold transition-colors">
                       {a.title}
                     </h3>
-                    <p className="text-sm text-brand-dark-text/80 leading-relaxed mb-4 flex-1">{a.excerpt}</p>
-                    <span className="text-[11px] text-brand-dark-text/70 tracking-wide">{formatDate(a.date)}</span>
+                    <p className="text-sm text-brand-dark-text/80 leading-relaxed mb-4 flex-1">
+                      {a.excerpt}
+                    </p>
+                    <span className="text-[11px] text-brand-dark-text/70 tracking-wide">
+                      {formatDate(a.date)}
+                    </span>
                   </div>
                 </Link>
               ))}

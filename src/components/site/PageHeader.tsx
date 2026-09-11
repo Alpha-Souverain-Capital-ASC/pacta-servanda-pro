@@ -26,7 +26,7 @@ export function PageHeader({
       style={
         backgroundImage && !isVideo
           ? {
-              backgroundImage: `linear-gradient(rgba(28,64,50,0.72), rgba(28,64,50,0.82)), url(${backgroundImage})`,
+              backgroundImage: `linear-gradient(rgba(4,68,34,0.72), rgba(4,68,34,0.82)), url(${backgroundImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",

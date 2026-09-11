@@ -8,9 +8,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logoWhiteGold from "../assets/branding/pa-advocates-logo-white-gold.png?inline";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
@@ -19,17 +20,17 @@ import { PageTransition } from "../components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-brand-offwhite px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="text-7xl font-bold text-brand-green">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-brand-green">Page not found</h2>
+        <p className="mt-2 text-sm text-brand-green/75">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center bg-brand-gold px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-gold/90"
           >
             Go home
           </Link>
@@ -47,12 +48,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-brand-offwhite px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-xl font-semibold tracking-tight text-brand-green">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-brand-green/75">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -61,18 +62,37 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center bg-brand-gold px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-gold/90"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center border border-brand-gold bg-white px-4 py-2 text-sm font-medium text-brand-green transition-colors hover:bg-brand-gold hover:text-white"
           >
             Go home
           </a>
         </div>
       </div>
+    </div>
+  );
+}
+
+function HomeLoadingScreen() {
+  return (
+    <div
+      className="home-loading-screen fixed inset-0 z-[9999] grid min-h-[100dvh] place-items-center bg-brand-green transition-opacity duration-500"
+      aria-label="Loading P&A Advocates"
+    >
+      <img
+        src={logoWhiteGold}
+        alt="P&A Advocates LLP"
+        className="h-24 w-auto sm:h-28"
+        draggable={false}
+        loading="eager"
+        decoding="sync"
+        fetchPriority="high"
+      />
     </div>
   );
 }
@@ -83,19 +103,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "P&A Advocates LLP" },
-      { name: "description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
+      {
+        name: "description",
+        content:
+          "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas.",
+      },
       { property: "og:site_name", content: "P&A Advocates LLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { property: "og:title", content: "P&A Advocates LLP" },
       { name: "twitter:title", content: "P&A Advocates LLP" },
-      { property: "og:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
-      { name: "twitter:description", content: "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp" },
+      {
+        property: "og:description",
+        content:
+          "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "P&A Advocates LLP is a full-service Kenyan law firm based in Mombasa, providing strategic legal counsel across nine practice areas.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/7hxRpE5jUYOZOCRif4bkUMyf5Ts2/social-images/social-1782455218792-pa_advocates.webp",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "preload", as: "image", href: logoWhiteGold, type: "image/png" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
@@ -145,7 +186,21 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  const [showHomeLoader, setShowHomeLoader] = useState(isHome);
   useGlobalReveal();
+
+  useEffect(() => {
+    if (!isHome) {
+      setShowHomeLoader(false);
+      return;
+    }
+
+    // This timer runs only for the initial root mount. Once the loader has
+    // cleared, navigating back to Home stays on the page content directly.
+    const timeout = window.setTimeout(() => setShowHomeLoader(false), 2200);
+    return () => window.clearTimeout(timeout);
+  }, [isHome]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, left: 0 });
@@ -153,7 +208,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="site-marble-bg min-h-screen flex flex-col">
-
         <Navbar />
         <main className={`flex-1 ${isHome ? "" : "pt-[4.5rem] sm:pt-[5rem]"}`}>
           <PageTransition>
@@ -161,6 +215,7 @@ function RootComponent() {
           </PageTransition>
         </main>
         <Footer />
+        {isHome && showHomeLoader && <HomeLoadingScreen />}
       </div>
     </QueryClientProvider>
   );

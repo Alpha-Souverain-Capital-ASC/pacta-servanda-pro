@@ -10,18 +10,20 @@
 // Kenyan law but MUST be reviewed by Perry or Jeremy for current statutory
 // figures (e.g. stamp duty rates, severance formulas) and firm sign-off.
 
+import { INSIGHT_MEDIA } from "@/lib/brand-media";
+
 export interface InsightArticle {
   slug: string;
   title: string;
   category: string;
   author: string;
-  date: string;            // ISO date
+  date: string; // ISO date
   readingTime: string;
-  excerpt: string;         // used on list cards
+  excerpt: string; // used on list cards
   metaDescription: string; // used in <meta name="description"> for SEO
-  keywords: string[];      // Kenyan legal search terms for SEO/AEO
-  coverImage: string;      // replace placeholder with real asset
-  body: string;            // Markdown
+  keywords: string[]; // Kenyan legal search terms for SEO/AEO
+  coverImage: string; // replace placeholder with real asset
+  body: string; // Markdown
 }
 
 export const insights: InsightArticle[] = [
@@ -50,7 +52,7 @@ export const insights: InsightArticle[] = [
       "sale agreement Kenya",
       "coastal land Mombasa",
     ],
-    coverImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+    coverImage: INSIGHT_MEDIA.land,
     body: `Land is one of the most valuable — and most contested — assets in Kenya. Fraudulent titles, double sales, and disputed ownership are common enough that no purchase should proceed on trust alone. Conveyancing is the legal process of transferring property from seller to buyer, and done properly, it is what protects your money.
 
 ## Start with an official search
@@ -106,7 +108,7 @@ Every stage above is a point where a buyer acting alone can lose everything. Eng
       "employment lawyer Mombasa",
       "labour law Kenya",
     ],
-    coverImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80",
+    coverImage: INSIGHT_MEDIA.employment,
     body: `Dismissing an employee is one of the most legally exposed decisions an employer makes. Get it wrong, and the Employment and Labour Relations Court can order compensation of up to twelve months' gross salary — or reinstatement. The good news is that the law is clear about what "getting it right" requires.
 
 ## You need a fair reason AND a fair procedure
@@ -162,7 +164,7 @@ An employee who believes they were unfairly terminated can bring a claim in the 
       "will writing Mombasa",
       "succession lawyer Mombasa",
     ],
-    coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80",
+    coverImage: INSIGHT_MEDIA.succession,
     body: `When someone dies without a valid will, they die "intestate" — and the law, not their wishes, decides how their property is shared. For many families the result is delay, disputes, and outcomes the deceased never intended. Understanding the rules is the first step to avoiding that.
 
 ## Intestate versus testate
@@ -214,7 +216,7 @@ A properly drafted will lets you decide who inherits, appoint the people you tru
       "business permit Mombasa",
       "corporate lawyer Mombasa",
     ],
-    coverImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
+    coverImage: INSIGHT_MEDIA.company,
     body: `Registering a company in Kenya has never been faster — the process is largely online. But speed hides risk: the decisions founders make while registering, often without advice, are the ones that cause expensive problems years later. Here is what to get right from the start.
 
 ## Choose the right structure
@@ -266,7 +268,7 @@ Registering a company is straightforward; structuring it to protect the founders
       "lease registration Kenya",
       "commercial property lawyer Mombasa",
     ],
-    coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    coverImage: INSIGHT_MEDIA.lease,
     body: `A commercial lease is often a business's largest fixed commitment, yet many tenants sign one without reading it closely. The clauses that cause the most damage are rarely obvious on a first pass. Here is what to check before you commit.
 
 ## Is your tenancy "controlled"?
