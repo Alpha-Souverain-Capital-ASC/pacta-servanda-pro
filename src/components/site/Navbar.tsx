@@ -51,7 +51,7 @@ export function Navbar() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-[4.5rem] sm:h-[5rem] flex items-center justify-between gap-3">
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-10 h-[4.5rem] sm:h-[5rem] flex items-center justify-between gap-3">
         <Link
           to="/"
           onClick={() => setOpen(false)}

@@ -8,9 +8,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logoWhiteGold from "../assets/branding/pa-advocates-logo-white-gold.png?inline";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
@@ -77,6 +78,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+function HomeLoadingScreen() {
+  return (
+    <div
+      className="home-loading-screen fixed inset-0 z-[9999] grid min-h-[100dvh] place-items-center bg-brand-green transition-opacity duration-500"
+      aria-label="Loading P&A Advocates"
+    >
+      <img
+        src={logoWhiteGold}
+        alt="P&A Advocates LLP"
+        className="h-24 w-auto sm:h-28"
+        draggable={false}
+        loading="eager"
+        decoding="sync"
+        fetchPriority="high"
+      />
+    </div>
+  );
+}
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -116,6 +136,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "preload", as: "image", href: logoWhiteGold, type: "image/png" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
@@ -165,7 +186,21 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  const [showHomeLoader, setShowHomeLoader] = useState(isHome);
   useGlobalReveal();
+
+  useEffect(() => {
+    if (!isHome) {
+      setShowHomeLoader(false);
+      return;
+    }
+
+    // This timer runs only for the initial root mount. Once the loader has
+    // cleared, navigating back to Home stays on the page content directly.
+    const timeout = window.setTimeout(() => setShowHomeLoader(false), 2200);
+    return () => window.clearTimeout(timeout);
+  }, [isHome]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, left: 0 });
@@ -180,6 +215,7 @@ function RootComponent() {
           </PageTransition>
         </main>
         <Footer />
+        {isHome && showHomeLoader && <HomeLoadingScreen />}
       </div>
     </QueryClientProvider>
   );
