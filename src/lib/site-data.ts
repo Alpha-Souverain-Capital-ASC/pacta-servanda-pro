@@ -86,12 +86,6 @@ export const TEAM = [
     tags: ["Civil Litigation", "Conveyancing"],
   },
   {
-    name: "Alex Marima",
-    title: "Head of Criminal Litigation, Family Law & Succession",
-    bio: "Heads the firm's criminal litigation and family and succession practice, combining strong courtroom advocacy with sensitive handling of family and estate matters.",
-    tags: ["Criminal Litigation", "Family Law & Succession"],
-  },
-  {
     name: "Daniel Munga",
     title: "Associate",
     bio: "Supports clients on commercial litigation, conveyancing, and commercial transactions with a keen eye for detail.",
